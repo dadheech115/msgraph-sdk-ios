@@ -6,6 +6,8 @@
 @class MSGraphDirectoryObjectRequestBuilder;
 @class MSGraphRegisteredOwnersCollectionRequestBuilder;
 @class MSGraphRegisteredUsersCollectionRequestBuilder;
+@class MSGraphExtensionRequestBuilder;
+@class MSGraphExtensionsCollectionRequestBuilder;
 #import "MSGraphModels.h"
 #import "MSRequest.h"
 

@@ -13,7 +13,7 @@
 
 - (MSGraphGroupCalendarViewCollectionRequest *)request;
 
-- (MSGraphGroupCalendarViewCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGroupCalendarViewCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphEventRequestBuilder *)event:(NSString *)event;
 

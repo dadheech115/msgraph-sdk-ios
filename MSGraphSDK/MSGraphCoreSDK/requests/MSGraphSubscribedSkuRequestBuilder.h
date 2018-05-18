@@ -14,7 +14,7 @@
 
 - (MSGraphSubscribedSkuRequest *) request;
 
-- (MSGraphSubscribedSkuRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphSubscribedSkuRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

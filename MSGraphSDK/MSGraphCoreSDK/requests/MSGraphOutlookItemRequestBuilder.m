@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphOutlookItemRequest.h"
+#import "MSGraphOutlookItemRequestBuilder.h"
+
 
 @implementation MSGraphOutlookItemRequestBuilder
 
@@ -12,9 +15,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphOutlookItemRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphOutlookItemRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphOutlookItemRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphOutlookItemRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

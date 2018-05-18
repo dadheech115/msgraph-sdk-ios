@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphDirectoryObjectRequest, MSGraphDirectoryObjectCheckMemberGroupsRequestBuilder, MSGraphDirectoryObjectGetMemberGroupsRequestBuilder, MSGraphDirectoryObjectGetMemberObjectsRequestBuilder;
+@class MSGraphDirectoryObjectRequest, MSGraphDirectoryObjectGetByIdsRequestBuilder, MSGraphDirectoryObjectCheckMemberGroupsRequestBuilder, MSGraphDirectoryObjectGetMemberGroupsRequestBuilder, MSGraphDirectoryObjectGetMemberObjectsRequestBuilder, MSGraphDirectoryObjectRestoreRequestBuilder;
 
 
 #import "MSGraphModels.h"
@@ -11,22 +11,20 @@
 
 @interface MSGraphDirectoryObjectRequestBuilder : MSGraphEntityRequestBuilder
 
+- (MSGraphDirectoryObjectGetByIdsRequestBuilder *)getByIdsWithIds:(NSArray *)ids types:(NSArray *)types ;
+
 - (MSGraphDirectoryObjectCheckMemberGroupsRequestBuilder *)checkMemberGroupsWithGroupIds:(NSArray *)groupIds ;
-
-
 
 - (MSGraphDirectoryObjectGetMemberGroupsRequestBuilder *)getMemberGroupsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly ;
 
-
-
 - (MSGraphDirectoryObjectGetMemberObjectsRequestBuilder *)getMemberObjectsWithSecurityEnabledOnly:(BOOL)securityEnabledOnly ;
 
-
+- (MSGraphDirectoryObjectRestoreRequestBuilder *)restore;
 
 
 - (MSGraphDirectoryObjectRequest *) request;
 
-- (MSGraphDirectoryObjectRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryObjectRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

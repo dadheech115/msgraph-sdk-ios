@@ -13,7 +13,7 @@
 
 - (MSGraphMessageAttachmentsCollectionRequest *)request;
 
-- (MSGraphMessageAttachmentsCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageAttachmentsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphAttachmentRequestBuilder *)attachment:(NSString *)attachment;
 

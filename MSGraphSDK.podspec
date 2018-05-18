@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "7.0"
 
-  s.source       = { :git => "https://github.com/MicrosoftGraph/msgraph-sdk-ios.git",
+  s.source       = { :git => "https://github.com/dadheech115/msgraph-sdk-ios.git",
                      :tag => "#{s.version}"}
 
   s.source_files = "MSGraphSDK/MSGraphSDK.h"

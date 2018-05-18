@@ -10,10 +10,11 @@
 
 @interface MSGraphDirectoryObjectGetMemberGroupsRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithSecurityEnabledOnly:(BOOL)securityEnabledOnly URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphDirectoryObjectGetMemberGroupsRequest *)request;
 
-- (MSGraphDirectoryObjectGetMemberGroupsRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryObjectGetMemberGroupsRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

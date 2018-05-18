@@ -10,8 +10,9 @@
 
 @interface MSGraphGroupResetUnseenCountRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphGroupResetUnseenCountRequest *)request;
 
-- (MSGraphGroupResetUnseenCountRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGroupResetUnseenCountRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

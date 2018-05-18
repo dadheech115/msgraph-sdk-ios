@@ -16,7 +16,7 @@
 
 - (MSGraphDeviceRegisteredUsersCollectionReferencesRequest *)request;
 
-- (MSGraphDeviceRegisteredUsersCollectionReferencesRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDeviceRegisteredUsersCollectionReferencesRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

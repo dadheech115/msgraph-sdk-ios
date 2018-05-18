@@ -13,7 +13,7 @@
                                    headers:(NSDictionary *)headers;
 @end
 
-@implementation MSGraphUsersCollectionRequest
+@implementation MSGraphGraphServiceUsersCollectionRequest
 
 - (NSMutableURLRequest *)get
 {
@@ -22,24 +22,24 @@
                            headers:nil];
 }
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphUsersCollectionCompletionHandler)completionHandler
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceUsersCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphUser alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphUsersCollectionRequest *nextRequest = [[MSGraphUsersCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphGraphServiceUsersCollectionRequest *nextRequest = [[MSGraphGraphServiceUsersCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addUser:(MSGraphUser*)user withCompletion:(MSGraphUserCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addUser:user]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addUser:user]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphUser alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

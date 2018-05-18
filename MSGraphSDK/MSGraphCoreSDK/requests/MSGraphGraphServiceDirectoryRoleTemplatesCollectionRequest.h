@@ -9,11 +9,11 @@
 
 typedef void (^MSGraphDirectoryRoleTemplateCompletionHandler)(MSGraphDirectoryRoleTemplate *response, NSError *error);
 
-typedef void (^MSGraphDirectoryRoleTemplatesCollectionCompletionHandler)(MSCollection *response, MSGraphDirectoryRoleTemplatesCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceDirectoryRoleTemplatesCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphDirectoryRoleTemplatesCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDirectoryRoleTemplatesCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDirectoryRoleTemplatesCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addDirectoryRoleTemplate:(MSGraphDirectoryRoleTemplate*)directoryRoleTemplate withCompletion:(MSGraphDirectoryRoleTemplateCompletionHandler)completionHandler;
 

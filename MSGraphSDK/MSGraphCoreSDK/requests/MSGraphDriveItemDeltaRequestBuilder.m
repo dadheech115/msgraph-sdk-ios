@@ -4,17 +4,46 @@
 
 #import "MSGraphODataEntities.h"
 
+@interface MSGraphDriveItemDeltaRequestBuilder()
+
+
+@property (nonatomic, getter=token) NSString * token;
+
+@end
 
 @implementation MSGraphDriveItemDeltaRequestBuilder
+
+
+- (instancetype)initWithToken:(NSString *)token URL:(NSURL *)url client:(ODataBaseClient*)client
+{
+    self = [super initWithURL:url client:client];
+    if (self){
+        _token = token;
+    }
+    return self;
+}
+
+- (instancetype)initWithURL:(NSURL *)url client:(ODataBaseClient*)client
+{
+    self = [super initWithURL:url client:client];
+    if (self){
+    }
+    return self;
+}
 
 - (MSGraphDriveItemDeltaRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemDeltaRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemDeltaRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDriveItemDeltaRequest alloc] initWithURL:self.requestURL client:self.client];
+
+    return [[MSGraphDriveItemDeltaRequest alloc] initWithToken:self.token
+                                                           URL:self.requestURL
+                                                requestOptions:requestOptions
+                                                        client:self.client];
+
 }
 
 @end

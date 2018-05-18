@@ -13,7 +13,7 @@
 
 - (MSGraphGroupRejectedSendersCollectionRequest *)request;
 
-- (MSGraphGroupRejectedSendersCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGroupRejectedSendersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphDirectoryObjectRequestBuilder *)directoryObject:(NSString *)directoryObject;
 

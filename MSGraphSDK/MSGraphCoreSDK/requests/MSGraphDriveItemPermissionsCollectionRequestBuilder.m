@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemPermissionsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemPermissionsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDriveItemPermissionsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDriveItemPermissionsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphPermissionRequestBuilder *)permission:(NSString *)permission
 {

@@ -18,7 +18,7 @@
 
 - (MSGraphDirectoryRoleRequest *) request;
 
-- (MSGraphDirectoryRoleRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryRoleRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

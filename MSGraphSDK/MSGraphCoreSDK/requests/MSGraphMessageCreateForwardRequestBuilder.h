@@ -10,8 +10,9 @@
 
 @interface MSGraphMessageCreateForwardRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphMessageCreateForwardRequest *)request;
 
-- (MSGraphMessageCreateForwardRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageCreateForwardRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

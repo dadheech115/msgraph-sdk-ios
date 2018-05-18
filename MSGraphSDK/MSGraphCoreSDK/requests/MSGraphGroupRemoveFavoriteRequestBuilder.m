@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupRemoveFavoriteRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupRemoveFavoriteRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphGroupRemoveFavoriteRequest alloc] initWithURL:self.requestURL client:self.client];
 }

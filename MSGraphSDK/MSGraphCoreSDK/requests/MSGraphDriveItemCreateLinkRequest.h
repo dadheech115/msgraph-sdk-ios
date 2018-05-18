@@ -10,7 +10,7 @@
 
 @property (readonly) NSMutableURLRequest *mutableRequest;
 
-- (instancetype)initWithType:(NSString *)type scope:(NSString *)scope URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client;
+- (instancetype)initWithType:(NSString *)type scope:(NSString *)scope URL:(NSURL *)url requestOptions:(NSArray *)requestOptions  client:(ODataBaseClient*)client;
 
 - (MSURLSessionDataTask *)executeWithCompletion:(void (^)(MSGraphPermission *response, NSError *error))completionHandler;
 

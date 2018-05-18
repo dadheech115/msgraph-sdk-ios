@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserCalendarsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphUserCalendarsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphUserCalendarsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphUserCalendarsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphCalendarRequestBuilder *)calendar:(NSString *)calendar
 {

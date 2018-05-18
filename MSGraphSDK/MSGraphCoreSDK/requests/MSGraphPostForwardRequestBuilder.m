@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphPostForwardRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphPostForwardRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphPostForwardRequest alloc] initWithComment:self.comment
                                                  toRecipients:self.toRecipients
                                                           URL:self.requestURL
-                                                      options:options
+                                               requestOptions:requestOptions
                                                        client:self.client];
 
 }

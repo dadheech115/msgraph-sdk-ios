@@ -10,10 +10,11 @@
 
 @interface MSGraphPostReplyRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithPost:(MSGraphPost *)post URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphPostReplyRequest *)request;
 
-- (MSGraphPostReplyRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphPostReplyRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemCreateLinkRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemCreateLinkRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphDriveItemCreateLinkRequest alloc] initWithType:self.type
                                                              scope:self.scope
                                                                URL:self.requestURL
-                                                           options:options
+                                                    requestOptions:requestOptions
                                                             client:self.client];
 
 }

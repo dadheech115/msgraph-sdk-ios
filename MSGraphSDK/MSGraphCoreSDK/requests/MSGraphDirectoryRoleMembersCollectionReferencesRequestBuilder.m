@@ -13,9 +13,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDirectoryRoleMembersCollectionReferencesRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDirectoryRoleMembersCollectionReferencesRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDirectoryRoleMembersCollectionReferencesRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDirectoryRoleMembersCollectionReferencesRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 @end

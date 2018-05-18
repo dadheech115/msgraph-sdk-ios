@@ -10,10 +10,11 @@
 
 @interface MSGraphEventSnoozeReminderRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithNewReminderTime:(MSGraphDateTimeTimeZone *)newReminderTime URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphEventSnoozeReminderRequest *)request;
 
-- (MSGraphEventSnoozeReminderRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphEventSnoozeReminderRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

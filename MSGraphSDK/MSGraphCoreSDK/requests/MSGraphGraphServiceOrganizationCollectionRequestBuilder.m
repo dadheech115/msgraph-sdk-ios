@@ -4,16 +4,16 @@
 
 #import "MSGraphODataEntities.h"
 
-@implementation MSGraphOrganizationCollectionRequestBuilder : MSCollectionRequestBuilder
+@implementation MSGraphGraphServiceOrganizationCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphOrganizationCollectionRequest*) request
+- (MSGraphGraphServiceOrganizationCollectionRequest*) request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphOrganizationCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGraphServiceOrganizationCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphOrganizationCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGraphServiceOrganizationCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphOrganizationRequestBuilder *)organization:(NSString *)organization
 {

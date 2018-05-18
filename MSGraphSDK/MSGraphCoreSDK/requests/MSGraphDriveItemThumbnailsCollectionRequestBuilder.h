@@ -13,7 +13,7 @@
 
 - (MSGraphDriveItemThumbnailsCollectionRequest *)request;
 
-- (MSGraphDriveItemThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphThumbnailSetRequestBuilder *)thumbnailSet:(NSString *)thumbnailSet;
 

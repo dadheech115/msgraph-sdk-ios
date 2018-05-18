@@ -4,16 +4,16 @@
 
 #import "MSGraphODataEntities.h"
 
-@implementation MSGraphSubscribedSkusCollectionRequestBuilder : MSCollectionRequestBuilder
+@implementation MSGraphGraphServiceSubscribedSkusCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphSubscribedSkusCollectionRequest*) request
+- (MSGraphGraphServiceSubscribedSkusCollectionRequest*) request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphSubscribedSkusCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGraphServiceSubscribedSkusCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphSubscribedSkusCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGraphServiceSubscribedSkusCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphSubscribedSkuRequestBuilder *)subscribedSku:(NSString *)subscribedSku
 {

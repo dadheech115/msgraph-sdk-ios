@@ -10,10 +10,11 @@
 
 @interface MSGraphUserSendMailRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithMessage:(MSGraphMessage *)message saveToSentItems:(BOOL)saveToSentItems URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphUserSendMailRequest *)request;
 
-- (MSGraphUserSendMailRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserSendMailRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

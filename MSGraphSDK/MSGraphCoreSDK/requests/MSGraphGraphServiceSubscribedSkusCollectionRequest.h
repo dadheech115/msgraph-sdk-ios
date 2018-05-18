@@ -9,11 +9,11 @@
 
 typedef void (^MSGraphSubscribedSkuCompletionHandler)(MSGraphSubscribedSku *response, NSError *error);
 
-typedef void (^MSGraphSubscribedSkusCollectionCompletionHandler)(MSCollection *response, MSGraphSubscribedSkusCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceSubscribedSkusCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceSubscribedSkusCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphSubscribedSkusCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceSubscribedSkusCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphSubscribedSkusCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceSubscribedSkusCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addSubscribedSku:(MSGraphSubscribedSku*)subscribedSku withCompletion:(MSGraphSubscribedSkuCompletionHandler)completionHandler;
 

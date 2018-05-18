@@ -13,7 +13,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -31,10 +31,10 @@
 @implementation MSGraphPostReplyRequest
 
 
-- (instancetype)initWithPost:(MSGraphPost *)post URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+- (instancetype)initWithPost:(MSGraphPost *)post URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
 {
     NSParameterAssert(post);
-    self = [super initWithURL:url options:options client:client];
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
     if (self){
         _post = post;
     }
@@ -51,12 +51,12 @@
 }
 
 
-- (MSURLSessionDataTask *)executeWithCompletion:(void (^)(NSDictionary *response, NSError *error))completionHandler
+- (MSURLSessionDataTask *)executeWithCompletion:(void (^)(MSObject *response, NSError *error))completionHandler
 {
 
     MSURLSessionDataTask *task = [self taskWithRequest:self.mutableRequest
                                 odObjectWithDictionary:^(id responseObject){
-                                                           return [[NSDictionary alloc] initWithDictionary:responseObject];
+                                                           return [[MSObject alloc] initWithDictionary:responseObject];
                                                        }
                                             completion:completionHandler];
     [task execute];

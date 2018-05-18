@@ -15,6 +15,7 @@
 @interface MSGraphSharingLink()
 {
     MSGraphIdentity* _application;
+    NSString* _scope;
     NSString* _type;
     NSString* _webUrl;
 }
@@ -29,25 +30,53 @@
     }
     return _application;
 }
+
 - (void) setApplication: (MSGraphIdentity*) val
 {
     _application = val;
     self.dictionary[@"application"] = val;
 }
+
+- (NSString*) scope
+{
+    if([[NSNull null] isEqual:self.dictionary[@"scope"]])
+    {
+        return nil;
+    }   
+    return self.dictionary[@"scope"];
+}
+
+- (void) setScope: (NSString*) val
+{
+    self.dictionary[@"scope"] = val;
+}
+
 - (NSString*) type
 {
+    if([[NSNull null] isEqual:self.dictionary[@"type"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"type"];
 }
+
 - (void) setType: (NSString*) val
 {
     self.dictionary[@"type"] = val;
 }
+
 - (NSString*) webUrl
 {
+    if([[NSNull null] isEqual:self.dictionary[@"webUrl"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"webUrl"];
 }
+
 - (void) setWebUrl: (NSString*) val
 {
     self.dictionary[@"webUrl"] = val;
 }
+
 @end

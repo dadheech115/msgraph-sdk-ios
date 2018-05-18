@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MSGraphTestCase.h"
+#import "MSGraphThumbnailRequest.h"
 
 @interface MSGraphThumbnailSet_CustomThumbnailTests : MSGraphTestCase
 @property NSString *thumbNailsURL;

@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphSubscribedSkuRequest.h"
+#import "MSGraphSubscribedSkuRequestBuilder.h"
+
 
 @implementation MSGraphSubscribedSkuRequestBuilder
 
@@ -12,9 +15,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphSubscribedSkuRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphSubscribedSkuRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphSubscribedSkuRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphSubscribedSkuRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

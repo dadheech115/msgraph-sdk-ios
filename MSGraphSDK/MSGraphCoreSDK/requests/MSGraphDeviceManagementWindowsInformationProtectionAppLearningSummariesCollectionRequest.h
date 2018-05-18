@@ -1,0 +1,20 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+
+@class MSGraphWindowsInformationProtectionAppLearningSummaryRequest, MSURLSessionDataTask;
+
+#import "MSGraphModels.h"
+#import "MSCollectionRequest.h"
+
+typedef void (^MSGraphWindowsInformationProtectionAppLearningSummaryCompletionHandler)(MSGraphWindowsInformationProtectionAppLearningSummary *response, NSError *error);
+
+typedef void (^MSGraphDeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionCompletionHandler)(MSCollection *response, MSGraphDeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest *nextRequest, NSError *error);
+
+@interface MSGraphDeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest : MSCollectionRequest
+
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionCompletionHandler)completionHandler;
+
+- (MSURLSessionDataTask *)addWindowsInformationProtectionAppLearningSummary:(MSGraphWindowsInformationProtectionAppLearningSummary*)windowsInformationProtectionAppLearningSummary withCompletion:(MSGraphWindowsInformationProtectionAppLearningSummaryCompletionHandler)completionHandler;
+
+@end

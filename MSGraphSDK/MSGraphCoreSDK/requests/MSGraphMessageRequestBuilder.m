@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphMessageRequest.h"
+#import "MSGraphMessageRequestBuilder.h"
+
 
 @implementation MSGraphMessageRequestBuilder
 
@@ -15,6 +18,39 @@
 - (MSGraphAttachmentRequestBuilder *)attachments:(NSString *)attachment
 {
     return [[self attachments] attachment:attachment];
+}
+
+- (MSGraphMessageExtensionsCollectionRequestBuilder *)extensions
+{
+    return [[MSGraphMessageExtensionsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"extensions"]  
+                                                                          client:self.client];
+}
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension
+{
+    return [[self extensions] extension:extension];
+}
+
+- (MSGraphMessageSingleValueExtendedPropertiesCollectionRequestBuilder *)singleValueExtendedProperties
+{
+    return [[MSGraphMessageSingleValueExtendedPropertiesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"singleValueExtendedProperties"]  
+                                                                                             client:self.client];
+}
+
+- (MSGraphSingleValueLegacyExtendedPropertyRequestBuilder *)singleValueExtendedProperties:(NSString *)singleValueLegacyExtendedProperty
+{
+    return [[self singleValueExtendedProperties] singleValueLegacyExtendedProperty:singleValueLegacyExtendedProperty];
+}
+
+- (MSGraphMessageMultiValueExtendedPropertiesCollectionRequestBuilder *)multiValueExtendedProperties
+{
+    return [[MSGraphMessageMultiValueExtendedPropertiesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"multiValueExtendedProperties"]  
+                                                                                            client:self.client];
+}
+
+- (MSGraphMultiValueLegacyExtendedPropertyRequestBuilder *)multiValueExtendedProperties:(NSString *)multiValueLegacyExtendedProperty
+{
+    return [[self multiValueExtendedProperties] multiValueLegacyExtendedProperty:multiValueLegacyExtendedProperty];
 }
 
 - (MSGraphMessageCopyRequestBuilder *)copyWithDestinationId:(NSString *)destinationId 
@@ -88,15 +124,20 @@
     return [[MSGraphMessageSendRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.send"] client:self.client];
 }
 
+- (MSGraphMessageDeltaRequestBuilder *)delta
+{
+    return [[MSGraphMessageDeltaRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.delta"] client:self.client];
+}
+
 
 - (MSGraphMessageRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMessageRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphMessageRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphMessageRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphMessageRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

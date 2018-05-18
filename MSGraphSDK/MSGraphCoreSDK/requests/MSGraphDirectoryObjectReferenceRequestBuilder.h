@@ -16,7 +16,7 @@
 
 - (MSGraphDirectoryObjectReferenceRequest *) request;
 
-- (MSGraphDirectoryObjectReferenceRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryObjectReferenceRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

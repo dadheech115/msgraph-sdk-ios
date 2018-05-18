@@ -10,10 +10,11 @@
 
 @interface MSGraphEventAcceptRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithComment:(NSString *)comment sendResponse:(BOOL)sendResponse URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphEventAcceptRequest *)request;
 
-- (MSGraphEventAcceptRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphEventAcceptRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

@@ -13,7 +13,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -34,11 +34,11 @@
 @implementation MSGraphUserAssignLicenseRequest
 
 
-- (instancetype)initWithAddLicenses:(NSArray *)addLicenses removeLicenses:(NSArray *)removeLicenses URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+- (instancetype)initWithAddLicenses:(NSArray *)addLicenses removeLicenses:(NSArray *)removeLicenses URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
 {
     NSParameterAssert(addLicenses);
     NSParameterAssert(removeLicenses);
-    self = [super initWithURL:url options:options client:client];
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
     if (self){
         _addLicenses = addLicenses;
         _removeLicenses = removeLicenses;

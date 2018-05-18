@@ -25,21 +25,21 @@
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphGroupConversationsCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphConversation alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphGroupConversationsCollectionRequest *nextRequest = [[MSGraphGroupConversationsCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphGroupConversationsCollectionRequest *nextRequest = [[MSGraphGroupConversationsCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addConversation:(MSGraphConversation*)conversation withCompletion:(MSGraphConversationCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addConversation:conversation]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addConversation:conversation]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphConversation alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

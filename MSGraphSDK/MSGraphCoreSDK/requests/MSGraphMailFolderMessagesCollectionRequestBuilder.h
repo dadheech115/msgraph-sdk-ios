@@ -13,7 +13,7 @@
 
 - (MSGraphMailFolderMessagesCollectionRequest *)request;
 
-- (MSGraphMailFolderMessagesCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMailFolderMessagesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphMessageRequestBuilder *)message:(NSString *)message;
 

@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemSearchRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemSearchRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphDriveItemSearchRequest alloc] initWithQ:self.q
                                                         URL:self.requestURL
-                                                    options:options
+                                             requestOptions:requestOptions
                                                      client:self.client];
 
 }

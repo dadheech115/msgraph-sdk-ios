@@ -18,7 +18,7 @@
 
 - (MSGraphCalendarGroupRequest *) request;
 
-- (MSGraphCalendarGroupRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphCalendarGroupRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

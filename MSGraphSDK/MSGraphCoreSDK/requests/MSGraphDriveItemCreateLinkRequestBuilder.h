@@ -10,10 +10,11 @@
 
 @interface MSGraphDriveItemCreateLinkRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithType:(NSString *)type scope:(NSString *)scope URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphDriveItemCreateLinkRequest *)request;
 
-- (MSGraphDriveItemCreateLinkRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemCreateLinkRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

@@ -17,8 +17,14 @@
     NSString* _name;
     MSGraphCalendarColor* _color;
     NSString* _changeKey;
+    BOOL _canShare;
+    BOOL _canViewPrivateItems;
+    BOOL _canEdit;
+    MSGraphEmailAddress* _owner;
     NSArray* _events;
     NSArray* _calendarView;
+    NSArray* _singleValueExtendedProperties;
+    NSArray* _multiValueExtendedProperties;
 }
 @end
 
@@ -33,12 +39,18 @@
 }
 - (NSString*) name
 {
+    if([[NSNull null] isEqual:self.dictionary[@"name"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"name"];
 }
+
 - (void) setName: (NSString*) val
 {
     self.dictionary[@"name"] = val;
 }
+
 - (MSGraphCalendarColor*) color
 {
     if(!_color){
@@ -46,19 +58,77 @@
     }
     return _color;
 }
+
 - (void) setColor: (MSGraphCalendarColor*) val
 {
     _color = val;
     self.dictionary[@"color"] = val;
 }
+
 - (NSString*) changeKey
 {
+    if([[NSNull null] isEqual:self.dictionary[@"changeKey"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"changeKey"];
 }
+
 - (void) setChangeKey: (NSString*) val
 {
     self.dictionary[@"changeKey"] = val;
 }
+
+- (BOOL) canShare
+{
+    _canShare = [self.dictionary[@"canShare"] boolValue];
+    return _canShare;
+}
+
+- (void) setCanShare: (BOOL) val
+{
+    _canShare = val;
+    self.dictionary[@"canShare"] = @(val);
+}
+
+- (BOOL) canViewPrivateItems
+{
+    _canViewPrivateItems = [self.dictionary[@"canViewPrivateItems"] boolValue];
+    return _canViewPrivateItems;
+}
+
+- (void) setCanViewPrivateItems: (BOOL) val
+{
+    _canViewPrivateItems = val;
+    self.dictionary[@"canViewPrivateItems"] = @(val);
+}
+
+- (BOOL) canEdit
+{
+    _canEdit = [self.dictionary[@"canEdit"] boolValue];
+    return _canEdit;
+}
+
+- (void) setCanEdit: (BOOL) val
+{
+    _canEdit = val;
+    self.dictionary[@"canEdit"] = @(val);
+}
+
+- (MSGraphEmailAddress*) owner
+{
+    if(!_owner){
+        _owner = [[MSGraphEmailAddress alloc] initWithDictionary: self.dictionary[@"owner"]];
+    }
+    return _owner;
+}
+
+- (void) setOwner: (MSGraphEmailAddress*) val
+{
+    _owner = val;
+    self.dictionary[@"owner"] = val;
+}
+
 - (NSArray*) events
 {
     if(!_events){
@@ -77,11 +147,13 @@
     }
     return _events;
 }
+
 - (void) setEvents: (NSArray*) val
 {
     _events = val;
     self.dictionary[@"events"] = val;
 }
+
 - (NSArray*) calendarView
 {
     if(!_calendarView){
@@ -100,18 +172,62 @@
     }
     return _calendarView;
 }
+
 - (void) setCalendarView: (NSArray*) val
 {
     _calendarView = val;
     self.dictionary[@"calendarView"] = val;
 }
-- (MSGraphEvent*) events:(NSInteger)index
+
+- (NSArray*) singleValueExtendedProperties
 {
-   MSGraphEvent* events = nil;
-   if (self.events) {
-       events = self.events[index];
-   }
-   return events;
+    if(!_singleValueExtendedProperties){
+        
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id singleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:[[MSGraphSingleValueLegacyExtendedProperty alloc] initWithDictionary: singleValueLegacyExtendedProperty]];
+        }
+    }
+
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+        
+    }
+    return _singleValueExtendedProperties;
 }
+
+- (void) setSingleValueExtendedProperties: (NSArray*) val
+{
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
+}
+
+- (NSArray*) multiValueExtendedProperties
+{
+    if(!_multiValueExtendedProperties){
+        
+    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
+
+    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id multiValueLegacyExtendedProperty in multiValueExtendedProperties){
+            [multiValueExtendedPropertiesResult addObject:[[MSGraphMultiValueLegacyExtendedProperty alloc] initWithDictionary: multiValueLegacyExtendedProperty]];
+        }
+    }
+
+    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
+        
+    }
+    return _multiValueExtendedProperties;
+}
+
+- (void) setMultiValueExtendedProperties: (NSArray*) val
+{
+    _multiValueExtendedProperties = val;
+    self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
 
 @end

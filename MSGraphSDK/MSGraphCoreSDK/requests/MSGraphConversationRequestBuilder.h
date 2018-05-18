@@ -18,7 +18,7 @@
 
 - (MSGraphConversationRequest *) request;
 
-- (MSGraphConversationRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphConversationRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

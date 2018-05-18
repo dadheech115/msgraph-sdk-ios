@@ -13,7 +13,7 @@
 
 - (MSGraphConversationThreadsCollectionRequest *)request;
 
-- (MSGraphConversationThreadsCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphConversationThreadsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphConversationThreadRequestBuilder *)conversationThread:(NSString *)conversationThread;
 

@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphPermissionRequest.h"
+#import "MSGraphPermissionRequestBuilder.h"
+
 
 @implementation MSGraphPermissionRequestBuilder
 
@@ -12,9 +15,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphPermissionRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphPermissionRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphPermissionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphPermissionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphContactFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphContactFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphContactFolderChildFoldersCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphContactFolderChildFoldersCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphContactFolderRequestBuilder *)contactFolder:(NSString *)contactFolder
 {

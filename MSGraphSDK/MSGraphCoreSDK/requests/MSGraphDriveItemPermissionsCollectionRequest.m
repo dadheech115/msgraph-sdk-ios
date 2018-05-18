@@ -25,21 +25,21 @@
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphDriveItemPermissionsCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphPermission alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphDriveItemPermissionsCollectionRequest *nextRequest = [[MSGraphDriveItemPermissionsCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphDriveItemPermissionsCollectionRequest *nextRequest = [[MSGraphDriveItemPermissionsCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addPermission:(MSGraphPermission*)permission withCompletion:(MSGraphPermissionCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addPermission:permission]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addPermission:permission]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphPermission alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

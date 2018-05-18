@@ -13,7 +13,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -31,12 +31,12 @@
 }
 
 
-- (MSURLSessionDataTask *)executeWithCompletion:(void (^)(NSDictionary *response, NSError *error))completionHandler
+- (MSURLSessionDataTask *)executeWithCompletion:(void (^)(MSObject *response, NSError *error))completionHandler
 {
 
     MSURLSessionDataTask *task = [self taskWithRequest:self.mutableRequest
                                 odObjectWithDictionary:^(id responseObject){
-                                                           return [[NSDictionary alloc] initWithDictionary:responseObject];
+                                                           return [[MSObject alloc] initWithDictionary:responseObject];
                                                        }
                                             completion:completionHandler];
     [task execute];

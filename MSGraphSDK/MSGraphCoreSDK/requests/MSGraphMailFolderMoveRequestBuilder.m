@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMailFolderMoveRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMailFolderMoveRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphMailFolderMoveRequest alloc] initWithDestinationId:self.destinationId
                                                                    URL:self.requestURL
-                                                               options:options
+                                                        requestOptions:requestOptions
                                                                 client:self.client];
 
 }

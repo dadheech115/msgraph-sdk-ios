@@ -25,21 +25,21 @@
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphMailFolderChildFoldersCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphMailFolder alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphMailFolderChildFoldersCollectionRequest *nextRequest = [[MSGraphMailFolderChildFoldersCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphMailFolderChildFoldersCollectionRequest *nextRequest = [[MSGraphMailFolderChildFoldersCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addMailFolder:(MSGraphMailFolder*)mailFolder withCompletion:(MSGraphMailFolderCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addMailFolder:mailFolder]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addMailFolder:mailFolder]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphMailFolder alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

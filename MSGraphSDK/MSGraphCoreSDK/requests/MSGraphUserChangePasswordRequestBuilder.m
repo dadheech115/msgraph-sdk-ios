@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserChangePasswordRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphUserChangePasswordRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphUserChangePasswordRequest alloc] initWithCurrentPassword:self.currentPassword
                                                                  newPassword:self.newPassword
                                                                          URL:self.requestURL
-                                                                     options:options
+                                                              requestOptions:requestOptions
                                                                       client:self.client];
 
 }

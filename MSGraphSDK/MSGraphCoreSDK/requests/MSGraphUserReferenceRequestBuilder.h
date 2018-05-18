@@ -16,7 +16,7 @@
 
 - (MSGraphUserReferenceRequest *) request;
 
-- (MSGraphUserReferenceRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphUserReferenceRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

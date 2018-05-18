@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMessageCopyRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMessageCopyRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphMessageCopyRequest alloc] initWithDestinationId:self.destinationId
                                                                 URL:self.requestURL
-                                                            options:options
+                                                     requestOptions:requestOptions
                                                              client:self.client];
 
 }

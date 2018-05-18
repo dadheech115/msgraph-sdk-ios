@@ -9,11 +9,11 @@
 
 typedef void (^MSGraphDeviceCompletionHandler)(MSGraphDevice *response, NSError *error);
 
-typedef void (^MSGraphDevicesCollectionCompletionHandler)(MSCollection *response, MSGraphDevicesCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceDevicesCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceDevicesCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphDevicesCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceDevicesCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDevicesCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDevicesCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addDevice:(MSGraphDevice*)device withCompletion:(MSGraphDeviceCompletionHandler)completionHandler;
 

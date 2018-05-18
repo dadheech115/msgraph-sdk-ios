@@ -10,7 +10,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 @end
 
@@ -19,71 +19,71 @@
 
 - (instancetype) select:(NSString *)select
 {
-    [self.options addObject:[MSSelectOptions select:select]];
+    [self.requestOptions addObject:[MSSelectOptions select:select]];
     return self;
 }
 
 - (instancetype) expand:(NSString *)expand
 {
-    [self.options addObject:[MSExpandOptions expand:expand]];
+    [self.requestOptions addObject:[MSExpandOptions expand:expand]];
     return self;
 }
 
 - (instancetype) orderBy:(NSString *)orderBy
 {
-    [self.options addObject:[MSOrderByOptions orderBy:orderBy]];
+    [self.requestOptions addObject:[MSOrderByOptions orderBy:orderBy]];
     return self;
 }
 
 - (instancetype) top:(NSInteger)top
 {
-    [self.options addObject:[MSTopOptions top:top]];
+    [self.requestOptions addObject:[MSTopOptions top:top]];
     return self;
 }
 
 - (instancetype) ifMatch:(NSString *)ifMatch
 {
-    [self.options addObject:[MSIfMatch entityTags:ifMatch]];
+    [self.requestOptions addObject:[MSIfMatch entityTags:ifMatch]];
     return self;
 }
 
 - (instancetype) ifNoneMatch:(NSString *)ifNoneMatch
 {
-    [self.options addObject:[MSIfNoneMatch entityTags:ifNoneMatch]];
+    [self.requestOptions addObject:[MSIfNoneMatch entityTags:ifNoneMatch]];
     return self;
 }
 
 - (instancetype) nameConflict:(MSNameConflict *)nameConflict
 {
-    [self.options addObject:nameConflict];
+    [self.requestOptions addObject:nameConflict];
     return self;
 }
 
 - (instancetype)initWithURL:(NSURL *)url client:(ODataBaseClient *)client
 {
-    return [self initWithURL:url options:nil client:client];
+    return [self initWithURL:url requestOptions:nil client:client];
 }
 
-- (instancetype) initWithURL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient *)client
+- (instancetype) initWithURL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient *)client
 {
     NSParameterAssert(url);
     NSParameterAssert(client);
     
-    [client.logger logWithLevel:MSLogLevelLogDebug message:@" MSRequest init with URL : %@ options : %@", url, options];
+    [client.logger logWithLevel:MSLogLevelLogDebug message:@" MSRequest init with URL : %@ requestOptions : %@", url, requestOptions];
     self = [super init];
     if (self){
-        // It may be best to make this an options object so it is type safe
-        if (options){
-            [options enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
+        // It may be best to make this an requestOptions object so it is type safe
+        if (requestOptions){
+            [requestOptions enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
                 if (![obj isKindOfClass:[MSRequestOptions class]]){
                     [client.logger logWithLevel:MSLogLevelLogError message:@" Option : %@ are not MSRequestOptions", obj];
-                    NSAssert([obj isKindOfClass:[MSRequestOptions class]], @"Options must be of type MSRequestOptions");
+                    NSAssert([obj isKindOfClass:[MSRequestOptions class]], @"requestOptions must be of type MSRequestOptions");
                 }
             }];
         }
-        _options = [options mutableCopy];
-        if (!_options){
-            _options = [NSMutableArray array];
+        _requestOptions = [requestOptions mutableCopy];
+        if (!_requestOptions){
+            _requestOptions = [NSMutableArray array];
         }
         _requestURL =  url;
         _client = client;
@@ -99,7 +99,7 @@
     
     [self.client.logger logWithLevel:MSLogLevelLogVerbose message:@" Creating Request with method : %@ body : %@ headers : %@", method, body, headers];
     
-    MSRequestOptionsBuilder *optionsBuilder = [MSRequestOptionsBuilder optionsWithArray:self.options];
+    MSRequestOptionsBuilder *optionsBuilder = [MSRequestOptionsBuilder optionsWithArray:self.requestOptions];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",[self.requestURL absoluteString], optionsBuilder.functionParams, optionsBuilder.queryOptions]];
    
     [self.client.logger logWithLevel:MSLogLevelLogDebug message:@"Request url : %@", url];

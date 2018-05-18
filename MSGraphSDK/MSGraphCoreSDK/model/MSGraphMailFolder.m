@@ -20,7 +20,10 @@
     int32_t _unreadItemCount;
     int32_t _totalItemCount;
     NSArray* _messages;
+    NSArray* _messageRules;
     NSArray* _childFolders;
+    NSArray* _singleValueExtendedProperties;
+    NSArray* _multiValueExtendedProperties;
 }
 @end
 
@@ -35,50 +38,68 @@
 }
 - (NSString*) displayName
 {
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"displayName"];
 }
+
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
 }
+
 - (NSString*) parentFolderId
 {
+    if([[NSNull null] isEqual:self.dictionary[@"parentFolderId"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"parentFolderId"];
 }
+
 - (void) setParentFolderId: (NSString*) val
 {
     self.dictionary[@"parentFolderId"] = val;
 }
+
 - (int32_t) childFolderCount
 {
     _childFolderCount = [self.dictionary[@"childFolderCount"] intValue];
     return _childFolderCount;
 }
+
 - (void) setChildFolderCount: (int32_t) val
 {
     _childFolderCount = val;
     self.dictionary[@"childFolderCount"] = @(val);
 }
+
 - (int32_t) unreadItemCount
 {
     _unreadItemCount = [self.dictionary[@"unreadItemCount"] intValue];
     return _unreadItemCount;
 }
+
 - (void) setUnreadItemCount: (int32_t) val
 {
     _unreadItemCount = val;
     self.dictionary[@"unreadItemCount"] = @(val);
 }
+
 - (int32_t) totalItemCount
 {
     _totalItemCount = [self.dictionary[@"totalItemCount"] intValue];
     return _totalItemCount;
 }
+
 - (void) setTotalItemCount: (int32_t) val
 {
     _totalItemCount = val;
     self.dictionary[@"totalItemCount"] = @(val);
 }
+
 - (NSArray*) messages
 {
     if(!_messages){
@@ -97,11 +118,38 @@
     }
     return _messages;
 }
+
 - (void) setMessages: (NSArray*) val
 {
     _messages = val;
     self.dictionary[@"messages"] = val;
 }
+
+- (NSArray*) messageRules
+{
+    if(!_messageRules){
+        
+    NSMutableArray *messageRulesResult = [NSMutableArray array];
+    NSArray *messageRules = self.dictionary[@"messageRules"];
+
+    if ([messageRules isKindOfClass:[NSArray class]]){
+        for (id messageRule in messageRules){
+            [messageRulesResult addObject:[[MSGraphMessageRule alloc] initWithDictionary: messageRule]];
+        }
+    }
+
+    _messageRules = messageRulesResult;
+        
+    }
+    return _messageRules;
+}
+
+- (void) setMessageRules: (NSArray*) val
+{
+    _messageRules = val;
+    self.dictionary[@"messageRules"] = val;
+}
+
 - (NSArray*) childFolders
 {
     if(!_childFolders){
@@ -120,18 +168,62 @@
     }
     return _childFolders;
 }
+
 - (void) setChildFolders: (NSArray*) val
 {
     _childFolders = val;
     self.dictionary[@"childFolders"] = val;
 }
-- (MSGraphMessage*) messages:(NSInteger)index
+
+- (NSArray*) singleValueExtendedProperties
 {
-   MSGraphMessage* messages = nil;
-   if (self.messages) {
-       messages = self.messages[index];
-   }
-   return messages;
+    if(!_singleValueExtendedProperties){
+        
+    NSMutableArray *singleValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *singleValueExtendedProperties = self.dictionary[@"singleValueExtendedProperties"];
+
+    if ([singleValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id singleValueLegacyExtendedProperty in singleValueExtendedProperties){
+            [singleValueExtendedPropertiesResult addObject:[[MSGraphSingleValueLegacyExtendedProperty alloc] initWithDictionary: singleValueLegacyExtendedProperty]];
+        }
+    }
+
+    _singleValueExtendedProperties = singleValueExtendedPropertiesResult;
+        
+    }
+    return _singleValueExtendedProperties;
 }
+
+- (void) setSingleValueExtendedProperties: (NSArray*) val
+{
+    _singleValueExtendedProperties = val;
+    self.dictionary[@"singleValueExtendedProperties"] = val;
+}
+
+- (NSArray*) multiValueExtendedProperties
+{
+    if(!_multiValueExtendedProperties){
+        
+    NSMutableArray *multiValueExtendedPropertiesResult = [NSMutableArray array];
+    NSArray *multiValueExtendedProperties = self.dictionary[@"multiValueExtendedProperties"];
+
+    if ([multiValueExtendedProperties isKindOfClass:[NSArray class]]){
+        for (id multiValueLegacyExtendedProperty in multiValueExtendedProperties){
+            [multiValueExtendedPropertiesResult addObject:[[MSGraphMultiValueLegacyExtendedProperty alloc] initWithDictionary: multiValueLegacyExtendedProperty]];
+        }
+    }
+
+    _multiValueExtendedProperties = multiValueExtendedPropertiesResult;
+        
+    }
+    return _multiValueExtendedProperties;
+}
+
+- (void) setMultiValueExtendedProperties: (NSArray*) val
+{
+    _multiValueExtendedProperties = val;
+    self.dictionary[@"multiValueExtendedProperties"] = val;
+}
+
 
 @end

@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventDismissReminderRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphEventDismissReminderRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphEventDismissReminderRequest alloc] initWithURL:self.requestURL client:self.client];
 }

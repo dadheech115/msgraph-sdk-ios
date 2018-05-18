@@ -16,7 +16,7 @@
 
 - (MSGraphEventMessageRequest *) request;
 
-- (MSGraphEventMessageRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphEventMessageRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

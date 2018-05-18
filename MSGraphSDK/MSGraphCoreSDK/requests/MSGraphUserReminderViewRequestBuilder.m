@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserReminderViewRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphUserReminderViewRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphUserReminderViewRequest alloc] initWithStartDateTime:self.startDateTime
                                                              endDateTime:self.endDateTime
                                                                      URL:self.requestURL
-                                                                 options:options
+                                                          requestOptions:requestOptions
                                                                   client:self.client];
 
 }

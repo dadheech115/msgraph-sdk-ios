@@ -3,13 +3,15 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphThumbnailRequestBuilder.h"
+#import "MSGraphThumbnailRequest.h"
 
 @implementation MSGraphThumbnailRequestBuilder
 
 - (MSGraphThumbnailContentRequest *) contentRequestWithOptions:(NSArray *)options
 {
     NSURL *contentURL = [self.requestURL URLByAppendingPathComponent:@"content"];
-    return [[MSGraphThumbnailContentRequest alloc] initWithURL:contentURL options:options client:self.client];
+    return [[MSGraphThumbnailContentRequest alloc] initWithURL:contentURL requestOptions:options client:self.client];
 }
 
 - (MSGraphThumbnailContentRequest *) contentRequest
@@ -25,7 +27,7 @@
 
 - (MSGraphThumbnailRequest *) requestWithOptions:(NSArray *)options
 {
-    return [[MSGraphThumbnailRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphThumbnailRequest alloc] initWithURL:self.requestURL requestOptions:options client:self.client];
 }
 
 

@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphProfilePhotoRequest.h"
+#import "MSGraphProfilePhotoRequestBuilder.h"
+
 
 @implementation MSGraphProfilePhotoRequestBuilder
 
@@ -12,9 +15,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphProfilePhotoRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphProfilePhotoRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphProfilePhotoRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphProfilePhotoRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

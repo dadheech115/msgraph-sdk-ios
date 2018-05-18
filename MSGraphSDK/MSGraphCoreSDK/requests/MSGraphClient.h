@@ -2,28 +2,64 @@
 
 
 
-@class MSGraphDirectoryObjectsCollectionRequestBuilder;
+@class MSGraphGraphServiceDirectoryObjectsCollectionRequestBuilder;
 @class MSGraphDirectoryObjectRequestBuilder;
-@class MSGraphDevicesCollectionRequestBuilder;
+@class MSGraphGraphServiceDevicesCollectionRequestBuilder;
 @class MSGraphDeviceRequestBuilder;
-@class MSGraphGroupsCollectionRequestBuilder;
+@class MSGraphGraphServiceDomainsCollectionRequestBuilder;
+@class MSGraphDomainRequestBuilder;
+@class MSGraphGraphServiceDomainDnsRecordsCollectionRequestBuilder;
+@class MSGraphDomainDnsRecordRequestBuilder;
+@class MSGraphGraphServiceGroupsCollectionRequestBuilder;
 @class MSGraphGroupRequestBuilder;
-@class MSGraphDirectoryRolesCollectionRequestBuilder;
+@class MSGraphGraphServiceDirectoryRolesCollectionRequestBuilder;
 @class MSGraphDirectoryRoleRequestBuilder;
-@class MSGraphDirectoryRoleTemplatesCollectionRequestBuilder;
+@class MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequestBuilder;
 @class MSGraphDirectoryRoleTemplateRequestBuilder;
-@class MSGraphOrganizationCollectionRequestBuilder;
+@class MSGraphGraphServiceOrganizationCollectionRequestBuilder;
 @class MSGraphOrganizationRequestBuilder;
-@class MSGraphSubscribedSkusCollectionRequestBuilder;
+@class MSGraphGraphServiceGroupSettingsCollectionRequestBuilder;
+@class MSGraphGroupSettingRequestBuilder;
+@class MSGraphGraphServiceGroupSettingTemplatesCollectionRequestBuilder;
+@class MSGraphGroupSettingTemplateRequestBuilder;
+@class MSGraphGraphServiceSubscribedSkusCollectionRequestBuilder;
 @class MSGraphSubscribedSkuRequestBuilder;
-@class MSGraphUsersCollectionRequestBuilder;
+@class MSGraphGraphServiceUsersCollectionRequestBuilder;
 @class MSGraphUserRequestBuilder;
-@class MSGraphDrivesCollectionRequestBuilder;
+@class MSGraphGraphServiceContractsCollectionRequestBuilder;
+@class MSGraphContractRequestBuilder;
+@class MSGraphGraphServiceSchemaExtensionsCollectionRequestBuilder;
+@class MSGraphSchemaExtensionRequestBuilder;
+@class MSGraphGraphServiceDrivesCollectionRequestBuilder;
 @class MSGraphDriveRequestBuilder;
-@class MSGraphMeCollectionRequestBuilder;
+@class MSGraphGraphServiceSharesCollectionRequestBuilder;
+@class MSGraphSharedDriveItemRequestBuilder;
+@class MSGraphGraphServiceSitesCollectionRequestBuilder;
+@class MSGraphSiteRequestBuilder;
+@class MSGraphGraphServiceWorkbooksCollectionRequestBuilder;
+@class MSGraphDriveItemRequestBuilder;
+@class MSGraphGraphServiceSubscriptionsCollectionRequestBuilder;
+@class MSGraphSubscriptionRequestBuilder;
+@class MSGraphGraphServiceInvitationsCollectionRequestBuilder;
+@class MSGraphInvitationRequestBuilder;
+@class MSGraphGraphServiceGroupLifecyclePoliciesCollectionRequestBuilder;
+@class MSGraphGroupLifecyclePolicyRequestBuilder;
+@class MSGraphGraphServiceMeCollectionRequestBuilder;
 @class MSGraphUserRequestBuilder;
-@class MSGraphDriveCollectionRequestBuilder;
+@class MSGraphGraphServiceDirectoryCollectionRequestBuilder;
+@class MSGraphDirectoryRequestBuilder;
+@class MSGraphGraphServiceDriveCollectionRequestBuilder;
 @class MSGraphDriveRequestBuilder;
+@class MSGraphGraphServicePlannerCollectionRequestBuilder;
+@class MSGraphPlannerRequestBuilder;
+@class MSGraphGraphServiceReportsCollectionRequestBuilder;
+@class MSGraphReportRootRequestBuilder;
+@class MSGraphGraphServiceEducationCollectionRequestBuilder;
+@class MSGraphEducationRootRequestBuilder;
+@class MSGraphGraphServiceDeviceAppManagementCollectionRequestBuilder;
+@class MSGraphDeviceAppManagementRequestBuilder;
+@class MSGraphGraphServiceDeviceManagementCollectionRequestBuilder;
+@class MSGraphDeviceManagementRequestBuilder;
 
 #import "ODataBaseClient.h"
 #import "MSGraphModels.h"
@@ -37,43 +73,97 @@
 
 @interface MSGraphClient : ODataBaseClient
 
--(MSGraphDirectoryObjectsCollectionRequestBuilder *)directoryObjects;
+-(MSGraphGraphServiceDirectoryObjectsCollectionRequestBuilder *)directoryObjects;
 
 -(MSGraphDirectoryObjectRequestBuilder *)directoryObjects:(NSString*)directoryObjectsId;
 
--(MSGraphDevicesCollectionRequestBuilder *)devices;
+-(MSGraphGraphServiceDevicesCollectionRequestBuilder *)devices;
 
 -(MSGraphDeviceRequestBuilder *)devices:(NSString*)devicesId;
 
--(MSGraphGroupsCollectionRequestBuilder *)groups;
+-(MSGraphGraphServiceDomainsCollectionRequestBuilder *)domains;
+
+-(MSGraphDomainRequestBuilder *)domains:(NSString*)domainsId;
+
+-(MSGraphGraphServiceDomainDnsRecordsCollectionRequestBuilder *)domainDnsRecords;
+
+-(MSGraphDomainDnsRecordRequestBuilder *)domainDnsRecords:(NSString*)domainDnsRecordsId;
+
+-(MSGraphGraphServiceGroupsCollectionRequestBuilder *)groups;
 
 -(MSGraphGroupRequestBuilder *)groups:(NSString*)groupsId;
 
--(MSGraphDirectoryRolesCollectionRequestBuilder *)directoryRoles;
+-(MSGraphGraphServiceDirectoryRolesCollectionRequestBuilder *)directoryRoles;
 
 -(MSGraphDirectoryRoleRequestBuilder *)directoryRoles:(NSString*)directoryRolesId;
 
--(MSGraphDirectoryRoleTemplatesCollectionRequestBuilder *)directoryRoleTemplates;
+-(MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequestBuilder *)directoryRoleTemplates;
 
 -(MSGraphDirectoryRoleTemplateRequestBuilder *)directoryRoleTemplates:(NSString*)directoryRoleTemplatesId;
 
--(MSGraphOrganizationCollectionRequestBuilder *)organization;
+-(MSGraphGraphServiceOrganizationCollectionRequestBuilder *)organization;
 
 -(MSGraphOrganizationRequestBuilder *)organization:(NSString*)organizationId;
 
--(MSGraphSubscribedSkusCollectionRequestBuilder *)subscribedSkus;
+-(MSGraphGraphServiceGroupSettingsCollectionRequestBuilder *)groupSettings;
+
+-(MSGraphGroupSettingRequestBuilder *)groupSettings:(NSString*)groupSettingsId;
+
+-(MSGraphGraphServiceGroupSettingTemplatesCollectionRequestBuilder *)groupSettingTemplates;
+
+-(MSGraphGroupSettingTemplateRequestBuilder *)groupSettingTemplates:(NSString*)groupSettingTemplatesId;
+
+-(MSGraphGraphServiceSubscribedSkusCollectionRequestBuilder *)subscribedSkus;
 
 -(MSGraphSubscribedSkuRequestBuilder *)subscribedSkus:(NSString*)subscribedSkusId;
 
--(MSGraphUsersCollectionRequestBuilder *)users;
+-(MSGraphGraphServiceUsersCollectionRequestBuilder *)users;
 
 -(MSGraphUserRequestBuilder *)users:(NSString*)usersId;
 
--(MSGraphDrivesCollectionRequestBuilder *)drives;
+-(MSGraphGraphServiceContractsCollectionRequestBuilder *)contracts;
+
+-(MSGraphContractRequestBuilder *)contracts:(NSString*)contractsId;
+
+-(MSGraphGraphServiceSchemaExtensionsCollectionRequestBuilder *)schemaExtensions;
+
+-(MSGraphSchemaExtensionRequestBuilder *)schemaExtensions:(NSString*)schemaExtensionsId;
+
+-(MSGraphGraphServiceDrivesCollectionRequestBuilder *)drives;
 
 -(MSGraphDriveRequestBuilder *)drives:(NSString*)drivesId;
 
+-(MSGraphGraphServiceSharesCollectionRequestBuilder *)shares;
+
+-(MSGraphSharedDriveItemRequestBuilder *)shares:(NSString*)sharesId;
+
+-(MSGraphGraphServiceSitesCollectionRequestBuilder *)sites;
+
+-(MSGraphSiteRequestBuilder *)sites:(NSString*)sitesId;
+
+-(MSGraphGraphServiceWorkbooksCollectionRequestBuilder *)workbooks;
+
+-(MSGraphDriveItemRequestBuilder *)workbooks:(NSString*)workbooksId;
+
+-(MSGraphGraphServiceSubscriptionsCollectionRequestBuilder *)subscriptions;
+
+-(MSGraphSubscriptionRequestBuilder *)subscriptions:(NSString*)subscriptionsId;
+
+-(MSGraphGraphServiceInvitationsCollectionRequestBuilder *)invitations;
+
+-(MSGraphInvitationRequestBuilder *)invitations:(NSString*)invitationsId;
+
+-(MSGraphGraphServiceGroupLifecyclePoliciesCollectionRequestBuilder *)groupLifecyclePolicies;
+
+-(MSGraphGroupLifecyclePolicyRequestBuilder *)groupLifecyclePolicies:(NSString*)groupLifecyclePoliciesId;
+
 -(MSGraphUserRequestBuilder *) me;
+-(MSGraphDirectoryRequestBuilder *) directory;
 -(MSGraphDriveRequestBuilder *) drive;
+-(MSGraphPlannerRequestBuilder *) planner;
+-(MSGraphReportRootRequestBuilder *) reports;
+-(MSGraphEducationRootRequestBuilder *) education;
+-(MSGraphDeviceAppManagementRequestBuilder *) deviceAppManagement;
+-(MSGraphDeviceManagementRequestBuilder *) deviceManagement;
 
 @end

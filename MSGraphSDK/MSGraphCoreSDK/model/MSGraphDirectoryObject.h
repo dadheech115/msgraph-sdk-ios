@@ -7,5 +7,6 @@
 
 @interface MSGraphDirectoryObject : MSGraphEntity
 
-
+  @property (nullable, nonatomic, setter=setDeletedDateTime:, getter=deletedDateTime) NSDate* deletedDateTime;
+  
 @end

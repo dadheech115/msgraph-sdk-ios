@@ -4,16 +4,16 @@
 
 #import "MSGraphODataEntities.h"
 
-@implementation MSGraphDirectoryRolesCollectionRequestBuilder : MSCollectionRequestBuilder
+@implementation MSGraphGraphServiceDirectoryRolesCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphDirectoryRolesCollectionRequest*) request
+- (MSGraphGraphServiceDirectoryRolesCollectionRequest*) request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDirectoryRolesCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGraphServiceDirectoryRolesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDirectoryRolesCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGraphServiceDirectoryRolesCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphDirectoryRoleRequestBuilder *)directoryRole:(NSString *)directoryRole
 {

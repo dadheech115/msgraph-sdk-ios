@@ -5,6 +5,12 @@
 @class MSURLSessionDataTask;
 @class MSGraphAttachmentRequestBuilder;
 @class MSGraphAttachmentsCollectionRequestBuilder;
+@class MSGraphExtensionRequestBuilder;
+@class MSGraphExtensionsCollectionRequestBuilder;
+@class MSGraphSingleValueLegacyExtendedPropertyRequestBuilder;
+@class MSGraphSingleValueExtendedPropertiesCollectionRequestBuilder;
+@class MSGraphMultiValueLegacyExtendedPropertyRequestBuilder;
+@class MSGraphMultiValueExtendedPropertiesCollectionRequestBuilder;
 #import "MSGraphModels.h"
 #import "MSRequest.h"
 

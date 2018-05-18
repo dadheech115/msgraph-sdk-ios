@@ -10,8 +10,9 @@
 
 @interface MSGraphMessageCreateReplyRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphMessageCreateReplyRequest *)request;
 
-- (MSGraphMessageCreateReplyRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageCreateReplyRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

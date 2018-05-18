@@ -9,9 +9,12 @@
 
 typedef void (^MSGraphDriveCompletionHandler)(MSGraphDrive *response, NSError *error);
 
-typedef void (^MSGraphDrivesCollectionCompletionHandler)(MSCollection *response, MSGraphDrivesCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceDrivesCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceDrivesCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphDrivesCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceDrivesCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDrivesCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDrivesCollectionCompletionHandler)completionHandler;
+
+- (MSURLSessionDataTask *)addDrive:(MSGraphDrive*)drive withCompletion:(MSGraphDriveCompletionHandler)completionHandler;
+
 @end

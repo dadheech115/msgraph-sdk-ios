@@ -10,10 +10,11 @@
 
 @interface MSGraphDriveItemSearchRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithQ:(NSString *)q URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphDriveItemSearchRequest *)request;
 
-- (MSGraphDriveItemSearchRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemSearchRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

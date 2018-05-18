@@ -10,10 +10,11 @@
 
 @interface MSGraphMessageCopyRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithDestinationId:(NSString *)destinationId URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphMessageCopyRequest *)request;
 
-- (MSGraphMessageCopyRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageCopyRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphOrganizationCollectionRequest, MSGraphOrganizationRequestBuilder;
+@class MSGraphGraphServiceOrganizationCollectionRequest, MSGraphOrganizationRequestBuilder;
 
 #import "MSGraphModels.h"
 #import "MSCollectionRequestBuilder.h"
@@ -9,11 +9,11 @@
 
 
 
-@interface MSGraphOrganizationCollectionRequestBuilder : MSCollectionRequestBuilder
+@interface MSGraphGraphServiceOrganizationCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphOrganizationCollectionRequest *)request;
+- (MSGraphGraphServiceOrganizationCollectionRequest *)request;
 
-- (MSGraphOrganizationCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGraphServiceOrganizationCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphOrganizationRequestBuilder *)organization:(NSString *)organization;
 

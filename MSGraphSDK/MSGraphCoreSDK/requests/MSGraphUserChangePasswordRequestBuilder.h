@@ -10,10 +10,11 @@
 
 @interface MSGraphUserChangePasswordRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithCurrentPassword:(NSString *)currentPassword newPassword:(NSString *)newPassword URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphUserChangePasswordRequest *)request;
 
-- (MSGraphUserChangePasswordRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserChangePasswordRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

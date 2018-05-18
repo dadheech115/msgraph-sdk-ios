@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphOrganizationRequest;
+@class MSGraphOrganizationRequest, MSGraphExtensionRequestBuilder, MSGraphOrganizationExtensionsCollectionRequestBuilder, MSGraphOrganizationSetMobileDeviceManagementAuthorityRequestBuilder;
 
 
 #import "MSGraphModels.h"
@@ -11,10 +11,16 @@
 
 @interface MSGraphOrganizationRequestBuilder : MSGraphDirectoryObjectRequestBuilder
 
+- (MSGraphOrganizationExtensionsCollectionRequestBuilder *)extensions;
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension;
+
+- (MSGraphOrganizationSetMobileDeviceManagementAuthorityRequestBuilder *)setMobileDeviceManagementAuthority;
+
 
 - (MSGraphOrganizationRequest *) request;
 
-- (MSGraphOrganizationRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphOrganizationRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

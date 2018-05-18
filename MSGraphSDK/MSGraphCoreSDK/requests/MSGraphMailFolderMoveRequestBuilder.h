@@ -10,10 +10,11 @@
 
 @interface MSGraphMailFolderMoveRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithDestinationId:(NSString *)destinationId URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphMailFolderMoveRequest *)request;
 
-- (MSGraphMailFolderMoveRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMailFolderMoveRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

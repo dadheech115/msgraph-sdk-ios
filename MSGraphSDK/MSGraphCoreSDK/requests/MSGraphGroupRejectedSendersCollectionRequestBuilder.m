@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupRejectedSendersCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupRejectedSendersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphGroupRejectedSendersCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGroupRejectedSendersCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphDirectoryObjectRequestBuilder *)directoryObject:(NSString *)directoryObject
 {

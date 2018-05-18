@@ -13,7 +13,7 @@
                                    headers:(NSDictionary *)headers;
 @end
 
-@implementation MSGraphDrivesCollectionRequest
+@implementation MSGraphGraphServiceDrivesCollectionRequest
 
 - (NSMutableURLRequest *)get
 {
@@ -22,24 +22,48 @@
                            headers:nil];
 }
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDrivesCollectionCompletionHandler)completionHandler
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDrivesCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphDrive alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphDrivesCollectionRequest *nextRequest = [[MSGraphDrivesCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphGraphServiceDrivesCollectionRequest *nextRequest = [[MSGraphGraphServiceDrivesCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
+}
+
+
+
+- (NSMutableURLRequest *)addDrive:(MSGraphDrive*)drive
+{
+    NSData *body = [NSJSONSerialization dataWithJSONObject:[drive dictionaryFromItem]
+                                                   options:0
+                                                     error:nil];
+    return [self requestWithMethod:@"POST"
+                              body:body
+                           headers:nil];
+
+}
+
+- (MSURLSessionDataTask *)addDrive:(MSGraphDrive*)drive withCompletion:(MSGraphDriveCompletionHandler)completionHandler
+{
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addDrive:drive]
+							     odObjectWithDictionary:^(NSDictionary *response){
+                                            return [[MSGraphDrive alloc] initWithDictionary:response];
+                                        }
+                                              completion:completionHandler];
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

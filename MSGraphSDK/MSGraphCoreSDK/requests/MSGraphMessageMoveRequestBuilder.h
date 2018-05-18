@@ -10,10 +10,11 @@
 
 @interface MSGraphMessageMoveRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithDestinationId:(NSString *)destinationId URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphMessageMoveRequest *)request;
 
-- (MSGraphMessageMoveRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageMoveRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

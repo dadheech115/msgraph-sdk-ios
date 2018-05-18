@@ -14,6 +14,7 @@
 
 @interface MSGraphDirectoryObject()
 {
+    NSDate* _deletedDateTime;
 }
 @end
 
@@ -26,5 +27,19 @@
     }
     return self;
 }
+- (NSDate*) deletedDateTime
+{
+    if(!_deletedDateTime){
+        _deletedDateTime = [NSDate ms_dateFromString: self.dictionary[@"deletedDateTime"]];
+    }
+    return _deletedDateTime;
+}
+
+- (void) setDeletedDateTime: (NSDate*) val
+{
+    _deletedDateTime = val;
+    self.dictionary[@"deletedDateTime"] = val;
+}
+
 
 @end

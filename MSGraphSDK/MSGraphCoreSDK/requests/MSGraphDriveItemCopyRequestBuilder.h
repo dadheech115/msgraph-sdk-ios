@@ -10,10 +10,11 @@
 
 @interface MSGraphDriveItemCopyRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithName:(NSString *)name parentReference:(MSGraphItemReference *)parentReference URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphDriveItemCopyRequest *)request;
 
-- (MSGraphDriveItemCopyRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemCopyRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

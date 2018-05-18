@@ -13,7 +13,7 @@
 
 - (MSGraphMailFolderChildFoldersCollectionRequest *)request;
 
-- (MSGraphMailFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMailFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphMailFolderRequestBuilder *)mailFolder:(NSString *)mailFolder;
 

@@ -1,0 +1,190 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+
+@class MSGraphReportRootRequest, MSGraphReportRootGetOffice365ActivationsUserDetailRequestBuilder, MSGraphReportRootGetOffice365ActivationCountsRequestBuilder, MSGraphReportRootGetOffice365ActivationsUserCountsRequestBuilder, MSGraphReportRootGetOffice365ActiveUserDetailRequestBuilder, MSGraphReportRootGetOffice365ServicesUserCountsRequestBuilder, MSGraphReportRootGetOffice365ActiveUserCountsRequestBuilder, MSGraphReportRootGetOffice365GroupsActivityDetailRequestBuilder, MSGraphReportRootGetOffice365GroupsActivityCountsRequestBuilder, MSGraphReportRootGetOffice365GroupsActivityGroupCountsRequestBuilder, MSGraphReportRootGetOffice365GroupsActivityStorageRequestBuilder, MSGraphReportRootGetOffice365GroupsActivityFileCountsRequestBuilder, MSGraphReportRootGetEmailActivityUserDetailRequestBuilder, MSGraphReportRootGetEmailActivityCountsRequestBuilder, MSGraphReportRootGetEmailActivityUserCountsRequestBuilder, MSGraphReportRootGetEmailAppUsageUserDetailRequestBuilder, MSGraphReportRootGetEmailAppUsageAppsUserCountsRequestBuilder, MSGraphReportRootGetEmailAppUsageUserCountsRequestBuilder, MSGraphReportRootGetEmailAppUsageVersionsUserCountsRequestBuilder, MSGraphReportRootGetMailboxUsageDetailRequestBuilder, MSGraphReportRootGetMailboxUsageMailboxCountsRequestBuilder, MSGraphReportRootGetMailboxUsageQuotaStatusMailboxCountsRequestBuilder, MSGraphReportRootGetMailboxUsageStorageRequestBuilder, MSGraphReportRootGetOneDriveActivityUserDetailRequestBuilder, MSGraphReportRootGetOneDriveActivityUserCountsRequestBuilder, MSGraphReportRootGetOneDriveActivityFileCountsRequestBuilder, MSGraphReportRootGetOneDriveUsageAccountDetailRequestBuilder, MSGraphReportRootGetOneDriveUsageAccountCountsRequestBuilder, MSGraphReportRootGetOneDriveUsageFileCountsRequestBuilder, MSGraphReportRootGetOneDriveUsageStorageRequestBuilder, MSGraphReportRootGetSharePointActivityUserDetailRequestBuilder, MSGraphReportRootGetSharePointActivityFileCountsRequestBuilder, MSGraphReportRootGetSharePointActivityUserCountsRequestBuilder, MSGraphReportRootGetSharePointActivityPagesRequestBuilder, MSGraphReportRootGetSharePointSiteUsageDetailRequestBuilder, MSGraphReportRootGetSharePointSiteUsageFileCountsRequestBuilder, MSGraphReportRootGetSharePointSiteUsageSiteCountsRequestBuilder, MSGraphReportRootGetSharePointSiteUsageStorageRequestBuilder, MSGraphReportRootGetSharePointSiteUsagePagesRequestBuilder, MSGraphReportRootGetSkypeForBusinessActivityUserDetailRequestBuilder, MSGraphReportRootGetSkypeForBusinessActivityCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessActivityUserCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityUserCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityMinuteCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessOrganizerActivityCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessOrganizerActivityUserCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessOrganizerActivityMinuteCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessParticipantActivityCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessParticipantActivityUserCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessParticipantActivityMinuteCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessDeviceUsageUserDetailRequestBuilder, MSGraphReportRootGetSkypeForBusinessDeviceUsageDistributionUserCountsRequestBuilder, MSGraphReportRootGetSkypeForBusinessDeviceUsageUserCountsRequestBuilder, MSGraphReportRootGetYammerActivityUserDetailRequestBuilder, MSGraphReportRootGetYammerActivityCountsRequestBuilder, MSGraphReportRootGetYammerActivityUserCountsRequestBuilder, MSGraphReportRootGetYammerDeviceUsageUserDetailRequestBuilder, MSGraphReportRootGetYammerDeviceUsageDistributionUserCountsRequestBuilder, MSGraphReportRootGetYammerDeviceUsageUserCountsRequestBuilder, MSGraphReportRootGetYammerGroupsActivityDetailRequestBuilder, MSGraphReportRootGetYammerGroupsActivityGroupCountsRequestBuilder, MSGraphReportRootGetYammerGroupsActivityCountsRequestBuilder, MSGraphReportRootGetTeamsUserActivityUserDetailRequestBuilder, MSGraphReportRootGetTeamsUserActivityCountsRequestBuilder, MSGraphReportRootGetTeamsUserActivityUserCountsRequestBuilder, MSGraphReportRootGetTeamsDeviceUsageUserDetailRequestBuilder, MSGraphReportRootGetTeamsDeviceUsageUserCountsRequestBuilder, MSGraphReportRootGetTeamsDeviceUsageDistributionUserCountsRequestBuilder, MSGraphReportRootDeviceConfigurationUserActivityRequestBuilder, MSGraphReportRootDeviceConfigurationDeviceActivityRequestBuilder;
+
+
+#import "MSGraphModels.h"
+#import "MSGraphEntityRequestBuilder.h"
+
+
+@interface MSGraphReportRootRequestBuilder : MSGraphEntityRequestBuilder
+
+- (MSGraphReportRootGetOffice365ActivationsUserDetailRequestBuilder *)getOffice365ActivationsUserDetail;
+
+- (MSGraphReportRootGetOffice365ActivationCountsRequestBuilder *)getOffice365ActivationCounts;
+
+- (MSGraphReportRootGetOffice365ActivationsUserCountsRequestBuilder *)getOffice365ActivationsUserCounts;
+
+- (MSGraphReportRootGetOffice365ActiveUserDetailRequestBuilder *)getOffice365ActiveUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetOffice365ActiveUserDetailRequestBuilder *)getOffice365ActiveUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365ServicesUserCountsRequestBuilder *)getOffice365ServicesUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365ActiveUserCountsRequestBuilder *)getOffice365ActiveUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityDetailRequestBuilder *)getOffice365GroupsActivityDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityDetailRequestBuilder *)getOffice365GroupsActivityDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityCountsRequestBuilder *)getOffice365GroupsActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityGroupCountsRequestBuilder *)getOffice365GroupsActivityGroupCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityStorageRequestBuilder *)getOffice365GroupsActivityStorageWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOffice365GroupsActivityFileCountsRequestBuilder *)getOffice365GroupsActivityFileCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailActivityUserDetailRequestBuilder *)getEmailActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetEmailActivityUserDetailRequestBuilder *)getEmailActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailActivityCountsRequestBuilder *)getEmailActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailActivityUserCountsRequestBuilder *)getEmailActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailAppUsageUserDetailRequestBuilder *)getEmailAppUsageUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetEmailAppUsageUserDetailRequestBuilder *)getEmailAppUsageUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailAppUsageAppsUserCountsRequestBuilder *)getEmailAppUsageAppsUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailAppUsageUserCountsRequestBuilder *)getEmailAppUsageUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetEmailAppUsageVersionsUserCountsRequestBuilder *)getEmailAppUsageVersionsUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetMailboxUsageDetailRequestBuilder *)getMailboxUsageDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetMailboxUsageMailboxCountsRequestBuilder *)getMailboxUsageMailboxCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetMailboxUsageQuotaStatusMailboxCountsRequestBuilder *)getMailboxUsageQuotaStatusMailboxCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetMailboxUsageStorageRequestBuilder *)getMailboxUsageStorageWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveActivityUserDetailRequestBuilder *)getOneDriveActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetOneDriveActivityUserDetailRequestBuilder *)getOneDriveActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveActivityUserCountsRequestBuilder *)getOneDriveActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveActivityFileCountsRequestBuilder *)getOneDriveActivityFileCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveUsageAccountDetailRequestBuilder *)getOneDriveUsageAccountDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetOneDriveUsageAccountDetailRequestBuilder *)getOneDriveUsageAccountDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveUsageAccountCountsRequestBuilder *)getOneDriveUsageAccountCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveUsageFileCountsRequestBuilder *)getOneDriveUsageFileCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetOneDriveUsageStorageRequestBuilder *)getOneDriveUsageStorageWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointActivityUserDetailRequestBuilder *)getSharePointActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetSharePointActivityUserDetailRequestBuilder *)getSharePointActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointActivityFileCountsRequestBuilder *)getSharePointActivityFileCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointActivityUserCountsRequestBuilder *)getSharePointActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointActivityPagesRequestBuilder *)getSharePointActivityPagesWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointSiteUsageDetailRequestBuilder *)getSharePointSiteUsageDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetSharePointSiteUsageDetailRequestBuilder *)getSharePointSiteUsageDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointSiteUsageFileCountsRequestBuilder *)getSharePointSiteUsageFileCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointSiteUsageSiteCountsRequestBuilder *)getSharePointSiteUsageSiteCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointSiteUsageStorageRequestBuilder *)getSharePointSiteUsageStorageWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSharePointSiteUsagePagesRequestBuilder *)getSharePointSiteUsagePagesWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessActivityUserDetailRequestBuilder *)getSkypeForBusinessActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetSkypeForBusinessActivityUserDetailRequestBuilder *)getSkypeForBusinessActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessActivityCountsRequestBuilder *)getSkypeForBusinessActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessActivityUserCountsRequestBuilder *)getSkypeForBusinessActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityCountsRequestBuilder *)getSkypeForBusinessPeerToPeerActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityUserCountsRequestBuilder *)getSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessPeerToPeerActivityMinuteCountsRequestBuilder *)getSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessOrganizerActivityCountsRequestBuilder *)getSkypeForBusinessOrganizerActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessOrganizerActivityUserCountsRequestBuilder *)getSkypeForBusinessOrganizerActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessOrganizerActivityMinuteCountsRequestBuilder *)getSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessParticipantActivityCountsRequestBuilder *)getSkypeForBusinessParticipantActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessParticipantActivityUserCountsRequestBuilder *)getSkypeForBusinessParticipantActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessParticipantActivityMinuteCountsRequestBuilder *)getSkypeForBusinessParticipantActivityMinuteCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessDeviceUsageUserDetailRequestBuilder *)getSkypeForBusinessDeviceUsageUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetSkypeForBusinessDeviceUsageUserDetailRequestBuilder *)getSkypeForBusinessDeviceUsageUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessDeviceUsageDistributionUserCountsRequestBuilder *)getSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetSkypeForBusinessDeviceUsageUserCountsRequestBuilder *)getSkypeForBusinessDeviceUsageUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerActivityUserDetailRequestBuilder *)getYammerActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetYammerActivityUserDetailRequestBuilder *)getYammerActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerActivityCountsRequestBuilder *)getYammerActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerActivityUserCountsRequestBuilder *)getYammerActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerDeviceUsageUserDetailRequestBuilder *)getYammerDeviceUsageUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetYammerDeviceUsageUserDetailRequestBuilder *)getYammerDeviceUsageUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerDeviceUsageDistributionUserCountsRequestBuilder *)getYammerDeviceUsageDistributionUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerDeviceUsageUserCountsRequestBuilder *)getYammerDeviceUsageUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerGroupsActivityDetailRequestBuilder *)getYammerGroupsActivityDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetYammerGroupsActivityDetailRequestBuilder *)getYammerGroupsActivityDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerGroupsActivityGroupCountsRequestBuilder *)getYammerGroupsActivityGroupCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetYammerGroupsActivityCountsRequestBuilder *)getYammerGroupsActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsUserActivityUserDetailRequestBuilder *)getTeamsUserActivityUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetTeamsUserActivityUserDetailRequestBuilder *)getTeamsUserActivityUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsUserActivityCountsRequestBuilder *)getTeamsUserActivityCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsUserActivityUserCountsRequestBuilder *)getTeamsUserActivityUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsDeviceUsageUserDetailRequestBuilder *)getTeamsDeviceUsageUserDetailWithDate:(MSDate *)date ;
+
+- (MSGraphReportRootGetTeamsDeviceUsageUserDetailRequestBuilder *)getTeamsDeviceUsageUserDetailWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsDeviceUsageUserCountsRequestBuilder *)getTeamsDeviceUsageUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootGetTeamsDeviceUsageDistributionUserCountsRequestBuilder *)getTeamsDeviceUsageDistributionUserCountsWithPeriod:(NSString *)period ;
+
+- (MSGraphReportRootDeviceConfigurationUserActivityRequestBuilder *)deviceConfigurationUserActivity;
+
+- (MSGraphReportRootDeviceConfigurationDeviceActivityRequestBuilder *)deviceConfigurationDeviceActivity;
+
+
+- (MSGraphReportRootRequest *) request;
+
+- (MSGraphReportRootRequest *) requestWithOptions:(NSArray *)requestOptions;
+
+
+@end

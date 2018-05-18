@@ -13,7 +13,7 @@
 
 - (MSGraphEventInstancesCollectionRequest *)request;
 
-- (MSGraphEventInstancesCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphEventInstancesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphEventRequestBuilder *)event:(NSString *)event;
 

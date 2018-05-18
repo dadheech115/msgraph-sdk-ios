@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveSharedWithMeRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveSharedWithMeRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphDriveSharedWithMeRequest alloc] initWithURL:self.requestURL client:self.client];
 }

@@ -1,0 +1,48 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+
+@class MSGraphDeviceCompliancePolicyRequest, MSGraphDeviceComplianceScheduledActionForRuleRequestBuilder, MSGraphDeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder, MSGraphDeviceComplianceDeviceStatusRequestBuilder, MSGraphDeviceCompliancePolicyDeviceStatusesCollectionRequestBuilder, MSGraphDeviceComplianceUserStatusRequestBuilder, MSGraphDeviceCompliancePolicyUserStatusesCollectionRequestBuilder, MSGraphDeviceComplianceDeviceOverviewRequestBuilder, MSGraphDeviceStatusOverviewRequestBuilder, MSGraphDeviceComplianceUserOverviewRequestBuilder, MSGraphUserStatusOverviewRequestBuilder, MSGraphSettingStateDeviceSummaryRequestBuilder, MSGraphDeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder, MSGraphDeviceCompliancePolicyAssignmentRequestBuilder, MSGraphDeviceCompliancePolicyAssignmentsCollectionRequestBuilder, MSGraphDeviceCompliancePolicyAssignRequestBuilder, MSGraphDeviceCompliancePolicyScheduleActionsForRulesRequestBuilder;
+
+
+#import "MSGraphModels.h"
+#import "MSGraphEntityRequestBuilder.h"
+
+
+@interface MSGraphDeviceCompliancePolicyRequestBuilder : MSGraphEntityRequestBuilder
+
+- (MSGraphDeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder *)scheduledActionsForRule;
+
+- (MSGraphDeviceComplianceScheduledActionForRuleRequestBuilder *)scheduledActionsForRule:(NSString *)deviceComplianceScheduledActionForRule;
+
+- (MSGraphDeviceCompliancePolicyDeviceStatusesCollectionRequestBuilder *)deviceStatuses;
+
+- (MSGraphDeviceComplianceDeviceStatusRequestBuilder *)deviceStatuses:(NSString *)deviceComplianceDeviceStatus;
+
+- (MSGraphDeviceCompliancePolicyUserStatusesCollectionRequestBuilder *)userStatuses;
+
+- (MSGraphDeviceComplianceUserStatusRequestBuilder *)userStatuses:(NSString *)deviceComplianceUserStatus;
+
+- (MSGraphDeviceComplianceDeviceOverviewRequestBuilder *) deviceStatusOverview;
+
+- (MSGraphDeviceComplianceUserOverviewRequestBuilder *) userStatusOverview;
+
+- (MSGraphDeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuilder *)deviceSettingStateSummaries;
+
+- (MSGraphSettingStateDeviceSummaryRequestBuilder *)deviceSettingStateSummaries:(NSString *)settingStateDeviceSummary;
+
+- (MSGraphDeviceCompliancePolicyAssignmentsCollectionRequestBuilder *)assignments;
+
+- (MSGraphDeviceCompliancePolicyAssignmentRequestBuilder *)assignments:(NSString *)deviceCompliancePolicyAssignment;
+
+- (MSGraphDeviceCompliancePolicyAssignRequestBuilder *)assignWithAssignments:(NSArray *)assignments ;
+
+- (MSGraphDeviceCompliancePolicyScheduleActionsForRulesRequestBuilder *)scheduleActionsForRulesWithDeviceComplianceScheduledActionForRules:(NSArray *)deviceComplianceScheduledActionForRules ;
+
+
+- (MSGraphDeviceCompliancePolicyRequest *) request;
+
+- (MSGraphDeviceCompliancePolicyRequest *) requestWithOptions:(NSArray *)requestOptions;
+
+
+@end

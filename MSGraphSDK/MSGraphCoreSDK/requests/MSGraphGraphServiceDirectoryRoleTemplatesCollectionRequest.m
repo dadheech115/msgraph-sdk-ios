@@ -13,7 +13,7 @@
                                    headers:(NSDictionary *)headers;
 @end
 
-@implementation MSGraphDirectoryRoleTemplatesCollectionRequest
+@implementation MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequest
 
 - (NSMutableURLRequest *)get
 {
@@ -22,24 +22,24 @@
                            headers:nil];
 }
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDirectoryRoleTemplatesCollectionCompletionHandler)completionHandler
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDirectoryRoleTemplatesCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphDirectoryRoleTemplate alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphDirectoryRoleTemplatesCollectionRequest *nextRequest = [[MSGraphDirectoryRoleTemplatesCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequest *nextRequest = [[MSGraphGraphServiceDirectoryRoleTemplatesCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addDirectoryRoleTemplate:(MSGraphDirectoryRoleTemplate*)directoryRoleTemplate withCompletion:(MSGraphDirectoryRoleTemplateCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addDirectoryRoleTemplate:directoryRoleTemplate]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addDirectoryRoleTemplate:directoryRoleTemplate]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphDirectoryRoleTemplate alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

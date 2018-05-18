@@ -5,6 +5,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphUserWithReferenceRequest.h"
+#import "MSGraphUserWithReferenceRequestBuilder.h"
+
 
 @implementation MSGraphUserWithReferenceRequestBuilder
 
@@ -14,9 +17,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserWithReferenceRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphUserWithReferenceRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphUserWithReferenceRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphUserWithReferenceRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 - (MSGraphUserReferenceRequestBuilder *) reference

@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMailFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMailFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphMailFolderChildFoldersCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphMailFolderChildFoldersCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphMailFolderRequestBuilder *)mailFolder:(NSString *)mailFolder
 {

@@ -10,8 +10,9 @@
 
 @interface MSGraphGroupRemoveFavoriteRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphGroupRemoveFavoriteRequest *)request;
 
-- (MSGraphGroupRemoveFavoriteRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGroupRemoveFavoriteRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

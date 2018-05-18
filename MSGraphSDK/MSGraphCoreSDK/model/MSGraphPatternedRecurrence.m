@@ -28,11 +28,13 @@
     }
     return _pattern;
 }
+
 - (void) setPattern: (MSGraphRecurrencePattern*) val
 {
     _pattern = val;
     self.dictionary[@"pattern"] = val;
 }
+
 - (MSGraphRecurrenceRange*) range
 {
     if(!_range){
@@ -40,9 +42,11 @@
     }
     return _range;
 }
+
 - (void) setRange: (MSGraphRecurrenceRange*) val
 {
     _range = val;
     self.dictionary[@"range"] = val;
 }
+
 @end

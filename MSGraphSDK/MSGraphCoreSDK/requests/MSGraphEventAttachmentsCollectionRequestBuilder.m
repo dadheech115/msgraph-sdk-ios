@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventAttachmentsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphEventAttachmentsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphEventAttachmentsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphEventAttachmentsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphAttachmentRequestBuilder *)attachment:(NSString *)attachment
 {

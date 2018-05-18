@@ -10,8 +10,9 @@
 
 @interface MSGraphEventDismissReminderRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphEventDismissReminderRequest *)request;
 
-- (MSGraphEventDismissReminderRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphEventDismissReminderRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

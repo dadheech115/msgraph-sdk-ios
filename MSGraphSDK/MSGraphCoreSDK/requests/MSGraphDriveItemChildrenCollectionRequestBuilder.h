@@ -13,7 +13,7 @@
 
 - (MSGraphDriveItemChildrenCollectionRequest *)request;
 
-- (MSGraphDriveItemChildrenCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemChildrenCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphDriveItemRequestBuilder *)driveItem:(NSString *)driveItem;
 

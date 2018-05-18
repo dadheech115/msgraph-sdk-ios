@@ -14,7 +14,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -32,9 +32,9 @@
 @implementation MSGraphDriveItemSearchRequest
 
 
-- (instancetype)initWithQ:(NSString *)q URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+- (instancetype)initWithQ:(NSString *)q URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
 {
-    self = [super initWithURL:url options:options client:client];
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
     if (self){
         _q = q;
     }
@@ -43,7 +43,7 @@
 
 - (NSMutableURLRequest *)mutableRequest
 {
-    [self.options addObject:[[MSFunctionParameters alloc] initWithKey:@"q"
+    [self.requestOptions addObject:[[MSFunctionParameters alloc] initWithKey:@"q"
                                                                 value:[MSObject getNSJsonSerializationCompatibleValue:_q]]];
 
     return [self requestWithMethod:@"GET" body:nil headers:nil];
@@ -60,7 +60,7 @@
                                                       completion:^(MSCollection *collectionResponse, NSError *error){
                                       if(!error && collectionResponse.nextLink && completionHandler){
                                               MSGraphDriveItemSearchRequest *nextRequest = [[MSGraphDriveItemSearchRequest alloc] initWithURL:collectionResponse.nextLink
-                                                                                                                  options:nil
+                                                                                                                  requestOptions:nil
                                                                                                                   client:self.client];
                                           completionHandler(collectionResponse, nextRequest, nil);
                                       }

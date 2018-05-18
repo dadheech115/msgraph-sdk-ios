@@ -3,8 +3,27 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphOrganizationRequest.h"
+#import "MSGraphOrganizationRequestBuilder.h"
+
 
 @implementation MSGraphOrganizationRequestBuilder
+
+- (MSGraphOrganizationExtensionsCollectionRequestBuilder *)extensions
+{
+    return [[MSGraphOrganizationExtensionsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"extensions"]  
+                                                                               client:self.client];
+}
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension
+{
+    return [[self extensions] extension:extension];
+}
+
+- (MSGraphOrganizationSetMobileDeviceManagementAuthorityRequestBuilder *)setMobileDeviceManagementAuthority
+{
+    return [[MSGraphOrganizationSetMobileDeviceManagementAuthorityRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.setMobileDeviceManagementAuthority"] client:self.client];
+}
 
 
 - (MSGraphOrganizationRequest *)request
@@ -12,9 +31,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphOrganizationRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphOrganizationRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphOrganizationRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphOrganizationRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

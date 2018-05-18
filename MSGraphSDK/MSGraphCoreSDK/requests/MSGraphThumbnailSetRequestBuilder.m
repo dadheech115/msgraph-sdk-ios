@@ -3,32 +3,11 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphThumbnailSetRequest.h"
+#import "MSGraphThumbnailSetRequestBuilder.h"
+
 
 @implementation MSGraphThumbnailSetRequestBuilder
-
--(MSGraphThumbnailRequestBuilder *)large
-{
-    return [[MSGraphThumbnailRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"large"] client:self.client];
-
-}
-
--(MSGraphThumbnailRequestBuilder *)medium
-{
-    return [[MSGraphThumbnailRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"medium"] client:self.client];
-
-}
-
--(MSGraphThumbnailRequestBuilder *)small
-{
-    return [[MSGraphThumbnailRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"small"] client:self.client];
-
-}
-
--(MSGraphThumbnailRequestBuilder *)source
-{
-    return [[MSGraphThumbnailRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"source"] client:self.client];
-
-}
 
 
 - (MSGraphThumbnailSetRequest *)request
@@ -36,9 +15,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphThumbnailSetRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphThumbnailSetRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphThumbnailSetRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphThumbnailSetRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

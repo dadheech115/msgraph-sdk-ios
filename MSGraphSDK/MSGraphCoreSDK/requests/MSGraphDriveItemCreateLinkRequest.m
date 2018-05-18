@@ -13,7 +13,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -34,10 +34,10 @@
 @implementation MSGraphDriveItemCreateLinkRequest
 
 
-- (instancetype)initWithType:(NSString *)type scope:(NSString *)scope URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+- (instancetype)initWithType:(NSString *)type scope:(NSString *)scope URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
 {
     NSParameterAssert(type);
-    self = [super initWithURL:url options:options client:client];
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
     if (self){
         _type = type;
         _scope = scope;

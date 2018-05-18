@@ -31,11 +31,13 @@
     }
     return _type;
 }
+
 - (void) setType: (MSGraphRecurrenceRangeType*) val
 {
     _type = val;
     self.dictionary[@"type"] = val;
 }
+
 - (MSDate*) startDate
 {
     if(!_startDate){
@@ -43,11 +45,13 @@
     }
     return _startDate;
 }
+
 - (void) setStartDate: (MSDate*) val
 {
     _startDate = val;
     self.dictionary[@"startDate"] = val;
 }
+
 - (MSDate*) endDate
 {
     if(!_endDate){
@@ -55,27 +59,37 @@
     }
     return _endDate;
 }
+
 - (void) setEndDate: (MSDate*) val
 {
     _endDate = val;
     self.dictionary[@"endDate"] = val;
 }
+
 - (NSString*) recurrenceTimeZone
 {
+    if([[NSNull null] isEqual:self.dictionary[@"recurrenceTimeZone"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"recurrenceTimeZone"];
 }
+
 - (void) setRecurrenceTimeZone: (NSString*) val
 {
     self.dictionary[@"recurrenceTimeZone"] = val;
 }
+
 - (int32_t) numberOfOccurrences
 {
     _numberOfOccurrences = [self.dictionary[@"numberOfOccurrences"] intValue];
     return _numberOfOccurrences;
 }
+
 - (void) setNumberOfOccurrences: (int32_t) val
 {
     _numberOfOccurrences = val;
     self.dictionary[@"numberOfOccurrences"] = @(val);
 }
+
 @end

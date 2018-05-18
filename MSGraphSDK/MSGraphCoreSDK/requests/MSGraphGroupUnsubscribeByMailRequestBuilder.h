@@ -10,8 +10,9 @@
 
 @interface MSGraphGroupUnsubscribeByMailRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphGroupUnsubscribeByMailRequest *)request;
 
-- (MSGraphGroupUnsubscribeByMailRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGroupUnsubscribeByMailRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

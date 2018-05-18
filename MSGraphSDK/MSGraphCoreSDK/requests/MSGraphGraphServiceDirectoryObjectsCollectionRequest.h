@@ -9,11 +9,11 @@
 
 typedef void (^MSGraphDirectoryObjectCompletionHandler)(MSGraphDirectoryObject *response, NSError *error);
 
-typedef void (^MSGraphDirectoryObjectsCollectionCompletionHandler)(MSCollection *response, MSGraphDirectoryObjectsCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceDirectoryObjectsCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceDirectoryObjectsCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphDirectoryObjectsCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceDirectoryObjectsCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDirectoryObjectsCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDirectoryObjectsCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addDirectoryObject:(MSGraphDirectoryObject*)directoryObject withCompletion:(MSGraphDirectoryObjectCompletionHandler)completionHandler;
 

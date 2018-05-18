@@ -39,7 +39,7 @@
     
     MSHeaderOptions *msRequestOption = [[MSHeaderOptions alloc] initWithKey:@"foo" value:@"bar"];
     NSArray *optionArray = [NSArray arrayWithObject:msRequestOption];
-    self.msRequest = [[MSRequest alloc] initWithURL:self.testBaseURL options:optionArray client:self.mockClient];
+    self.msRequest = [[MSRequest alloc] initWithURL:self.testBaseURL requestOptions:optionArray client:self.mockClient];
     
     self.OKresponse = [[NSHTTPURLResponse alloc] initWithURL:self.testBaseURL statusCode:MSExpectedResponseCodesOK HTTPVersion:@"foo" headerFields:nil];
     self.Badresponse = [[NSHTTPURLResponse alloc] initWithURL:self.testBaseURL statusCode:MSClientErrorCodeBadRequest HTTPVersion:@"foo" headerFields:nil];
@@ -109,7 +109,7 @@
 }
 - (void)testRequestWithInvalidOptions{
     NSArray *invalidOptions = @[@"foo", @"Bar"];
-    XCTAssertThrows([[MSRequest alloc] initWithURL:self.testBaseURL options:invalidOptions client:self.mockClient]);
+    XCTAssertThrows([[MSRequest alloc] initWithURL:self.testBaseURL requestOptions:invalidOptions client:self.mockClient]);
 }
 
 -(void)testRequestWithMethod{
@@ -127,7 +127,7 @@
 
 
 - (void)testTaskWithNilRequest{
-    MSRequest *testRequest = [[MSRequest alloc] initWithURL:self.testBaseURL options:nil client:self.mockClient];
+    MSRequest *testRequest = [[MSRequest alloc] initWithURL:self.testBaseURL requestOptions:nil client:self.mockClient];
     XCTAssertThrows([testRequest taskWithRequest:nil odObjectWithDictionary:nil completion:nil]);
 }
 -(void)testTaskWithRequest{
@@ -241,7 +241,7 @@
 }
 - (void)testRequestWithHeaderOptions{
     MSHeaderOptions *testHeaders = [[MSHeaderOptions alloc] initWithKey:@"foo" value:@"Bar"];
-    MSRequest *msRequest = [[MSRequest alloc] initWithURL:self.testBaseURL options:@[testHeaders] client:self.mockClient];
+    MSRequest *msRequest = [[MSRequest alloc] initWithURL:self.testBaseURL requestOptions:@[testHeaders] client:self.mockClient];
     NSMutableURLRequest *testRequest = [msRequest requestWithMethod:@"GET" body:nil headers:nil];
     
     NSMutableURLRequest *expectedRequest = [NSMutableURLRequest requestWithURL:self.testBaseURL];

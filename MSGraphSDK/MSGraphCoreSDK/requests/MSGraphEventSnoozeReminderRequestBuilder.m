@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventSnoozeReminderRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphEventSnoozeReminderRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphEventSnoozeReminderRequest alloc] initWithNewReminderTime:self.newReminderTime
                                                                           URL:self.requestURL
-                                                                      options:options
+                                                               requestOptions:requestOptions
                                                                        client:self.client];
 
 }

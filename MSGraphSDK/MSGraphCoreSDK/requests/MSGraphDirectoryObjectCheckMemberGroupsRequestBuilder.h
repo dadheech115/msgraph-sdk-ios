@@ -10,10 +10,11 @@
 
 @interface MSGraphDirectoryObjectCheckMemberGroupsRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithGroupIds:(NSArray *)groupIds URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphDirectoryObjectCheckMemberGroupsRequest *)request;
 
-- (MSGraphDirectoryObjectCheckMemberGroupsRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryObjectCheckMemberGroupsRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

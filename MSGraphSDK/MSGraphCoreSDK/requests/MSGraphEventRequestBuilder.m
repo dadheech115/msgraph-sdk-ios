@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphEventRequest.h"
+#import "MSGraphEventRequestBuilder.h"
+
 
 @implementation MSGraphEventRequestBuilder
 
@@ -23,6 +26,17 @@
     return [[self instances] event:event];
 }
 
+- (MSGraphEventExtensionsCollectionRequestBuilder *)extensions
+{
+    return [[MSGraphEventExtensionsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"extensions"]  
+                                                                        client:self.client];
+}
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension
+{
+    return [[self extensions] extension:extension];
+}
+
 - (MSGraphEventAttachmentsCollectionRequestBuilder *)attachments
 {
     return [[MSGraphEventAttachmentsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"attachments"]  
@@ -32,6 +46,28 @@
 - (MSGraphAttachmentRequestBuilder *)attachments:(NSString *)attachment
 {
     return [[self attachments] attachment:attachment];
+}
+
+- (MSGraphEventSingleValueExtendedPropertiesCollectionRequestBuilder *)singleValueExtendedProperties
+{
+    return [[MSGraphEventSingleValueExtendedPropertiesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"singleValueExtendedProperties"]  
+                                                                                           client:self.client];
+}
+
+- (MSGraphSingleValueLegacyExtendedPropertyRequestBuilder *)singleValueExtendedProperties:(NSString *)singleValueLegacyExtendedProperty
+{
+    return [[self singleValueExtendedProperties] singleValueLegacyExtendedProperty:singleValueLegacyExtendedProperty];
+}
+
+- (MSGraphEventMultiValueExtendedPropertiesCollectionRequestBuilder *)multiValueExtendedProperties
+{
+    return [[MSGraphEventMultiValueExtendedPropertiesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"multiValueExtendedProperties"]  
+                                                                                          client:self.client];
+}
+
+- (MSGraphMultiValueLegacyExtendedPropertyRequestBuilder *)multiValueExtendedProperties:(NSString *)multiValueLegacyExtendedProperty
+{
+    return [[self multiValueExtendedProperties] multiValueLegacyExtendedProperty:multiValueLegacyExtendedProperty];
 }
 
 - (MSGraphEventAcceptRequestBuilder *)acceptWithComment:(NSString *)comment sendResponse:(BOOL)sendResponse 
@@ -82,15 +118,20 @@
     return [[MSGraphEventDismissReminderRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.dismissReminder"] client:self.client];
 }
 
+- (MSGraphEventDeltaRequestBuilder *)delta
+{
+    return [[MSGraphEventDeltaRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.delta"] client:self.client];
+}
+
 
 - (MSGraphEventRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphEventRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphEventRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphEventRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

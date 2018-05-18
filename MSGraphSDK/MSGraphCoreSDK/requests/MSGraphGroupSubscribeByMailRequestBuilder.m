@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupSubscribeByMailRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupSubscribeByMailRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphGroupSubscribeByMailRequest alloc] initWithURL:self.requestURL client:self.client];
 }

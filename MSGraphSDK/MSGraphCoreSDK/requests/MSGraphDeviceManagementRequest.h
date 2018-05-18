@@ -1,0 +1,65 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+
+@class MSURLSessionDataTask;
+@class MSGraphTermsAndConditionsRequestBuilder;
+@class MSGraphTermsAndConditionsCollectionRequestBuilder;
+@class MSGraphApplePushNotificationCertificateRequestBuilder;
+@class MSGraphManagedDeviceOverviewRequestBuilder;
+@class MSGraphDetectedAppRequestBuilder;
+@class MSGraphDetectedAppsCollectionRequestBuilder;
+@class MSGraphManagedDeviceRequestBuilder;
+@class MSGraphManagedDevicesCollectionRequestBuilder;
+@class MSGraphDeviceConfigurationRequestBuilder;
+@class MSGraphDeviceConfigurationsCollectionRequestBuilder;
+@class MSGraphDeviceCompliancePolicyRequestBuilder;
+@class MSGraphDeviceCompliancePoliciesCollectionRequestBuilder;
+@class MSGraphSoftwareUpdateStatusSummaryRequestBuilder;
+@class MSGraphDeviceCompliancePolicyDeviceStateSummaryRequestBuilder;
+@class MSGraphDeviceCompliancePolicySettingStateSummaryRequestBuilder;
+@class MSGraphDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder;
+@class MSGraphDeviceConfigurationDeviceStateSummaryRequestBuilder;
+@class MSGraphIosUpdateDeviceStatusRequestBuilder;
+@class MSGraphIosUpdateStatusesCollectionRequestBuilder;
+@class MSGraphDeviceCategoryRequestBuilder;
+@class MSGraphDeviceCategoriesCollectionRequestBuilder;
+@class MSGraphDeviceManagementExchangeConnectorRequestBuilder;
+@class MSGraphExchangeConnectorsCollectionRequestBuilder;
+@class MSGraphDeviceEnrollmentConfigurationRequestBuilder;
+@class MSGraphDeviceEnrollmentConfigurationsCollectionRequestBuilder;
+@class MSGraphOnPremisesConditionalAccessSettingsRequestBuilder;
+@class MSGraphMobileThreatDefenseConnectorRequestBuilder;
+@class MSGraphMobileThreatDefenseConnectorsCollectionRequestBuilder;
+@class MSGraphDeviceManagementPartnerRequestBuilder;
+@class MSGraphDeviceManagementPartnersCollectionRequestBuilder;
+@class MSGraphNotificationMessageTemplateRequestBuilder;
+@class MSGraphNotificationMessageTemplatesCollectionRequestBuilder;
+@class MSGraphRoleDefinitionRequestBuilder;
+@class MSGraphRoleDefinitionsCollectionRequestBuilder;
+@class MSGraphDeviceAndAppManagementRoleAssignmentRequestBuilder;
+@class MSGraphRoleAssignmentsCollectionRequestBuilder;
+@class MSGraphResourceOperationRequestBuilder;
+@class MSGraphResourceOperationsCollectionRequestBuilder;
+@class MSGraphTelecomExpenseManagementPartnerRequestBuilder;
+@class MSGraphTelecomExpenseManagementPartnersCollectionRequestBuilder;
+@class MSGraphRemoteAssistancePartnerRequestBuilder;
+@class MSGraphRemoteAssistancePartnersCollectionRequestBuilder;
+@class MSGraphWindowsInformationProtectionAppLearningSummaryRequestBuilder;
+@class MSGraphWindowsInformationProtectionAppLearningSummariesCollectionRequestBuilder;
+@class MSGraphWindowsInformationProtectionNetworkLearningSummaryRequestBuilder;
+@class MSGraphWindowsInformationProtectionNetworkLearningSummariesCollectionRequestBuilder;
+@class MSGraphDeviceManagementTroubleshootingEventRequestBuilder;
+@class MSGraphTroubleshootingEventsCollectionRequestBuilder;
+#import "MSGraphModels.h"
+#import "MSRequest.h"
+
+@interface MSGraphDeviceManagementRequest : MSRequest
+
+- (MSURLSessionDataTask *)getWithCompletion:(void (^)(MSGraphDeviceManagement *response, NSError *error))completionHandler;
+
+- (MSURLSessionDataTask *)update:(MSGraphDeviceManagement *)deviceManagement withCompletion:(void (^)(MSGraphDeviceManagement *response, NSError *error))completionHandler;
+
+- (MSURLSessionDataTask *)deleteWithCompletion:(void(^)(NSError *error))completionHandler;
+
+@end

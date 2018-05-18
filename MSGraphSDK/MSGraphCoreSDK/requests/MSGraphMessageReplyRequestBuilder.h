@@ -10,10 +10,11 @@
 
 @interface MSGraphMessageReplyRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithComment:(NSString *)comment URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphMessageReplyRequest *)request;
 
-- (MSGraphMessageReplyRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphMessageReplyRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

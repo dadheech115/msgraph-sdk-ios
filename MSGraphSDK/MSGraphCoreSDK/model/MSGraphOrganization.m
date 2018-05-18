@@ -32,6 +32,8 @@
     NSString* _street;
     NSArray* _technicalNotificationMails;
     NSArray* _verifiedDomains;
+    MSGraphMdmAuthority* _mobileDeviceManagementAuthority;
+    NSArray* _extensions;
 }
 @end
 
@@ -62,59 +64,89 @@
     }
     return _assignedPlans;
 }
+
 - (void) setAssignedPlans: (NSArray*) val
 {
     _assignedPlans = val;
     self.dictionary[@"assignedPlans"] = val;
 }
+
 - (NSArray*) businessPhones
 {
     return self.dictionary[@"businessPhones"];
 }
+
 - (void) setBusinessPhones: (NSArray*) val
 {
     self.dictionary[@"businessPhones"] = val;
 }
+
 - (NSString*) city
 {
+    if([[NSNull null] isEqual:self.dictionary[@"city"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"city"];
 }
+
 - (void) setCity: (NSString*) val
 {
     self.dictionary[@"city"] = val;
 }
+
 - (NSString*) country
 {
+    if([[NSNull null] isEqual:self.dictionary[@"country"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"country"];
 }
+
 - (void) setCountry: (NSString*) val
 {
     self.dictionary[@"country"] = val;
 }
+
 - (NSString*) countryLetterCode
 {
+    if([[NSNull null] isEqual:self.dictionary[@"countryLetterCode"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"countryLetterCode"];
 }
+
 - (void) setCountryLetterCode: (NSString*) val
 {
     self.dictionary[@"countryLetterCode"] = val;
 }
+
 - (NSString*) displayName
 {
+    if([[NSNull null] isEqual:self.dictionary[@"displayName"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"displayName"];
 }
+
 - (void) setDisplayName: (NSString*) val
 {
     self.dictionary[@"displayName"] = val;
 }
+
 - (NSArray*) marketingNotificationEmails
 {
     return self.dictionary[@"marketingNotificationEmails"];
 }
+
 - (void) setMarketingNotificationEmails: (NSArray*) val
 {
     self.dictionary[@"marketingNotificationEmails"] = val;
 }
+
 - (NSDate*) onPremisesLastSyncDateTime
 {
     if(!_onPremisesLastSyncDateTime){
@@ -122,37 +154,53 @@
     }
     return _onPremisesLastSyncDateTime;
 }
+
 - (void) setOnPremisesLastSyncDateTime: (NSDate*) val
 {
     _onPremisesLastSyncDateTime = val;
     self.dictionary[@"onPremisesLastSyncDateTime"] = val;
 }
+
 - (BOOL) onPremisesSyncEnabled
 {
     _onPremisesSyncEnabled = [self.dictionary[@"onPremisesSyncEnabled"] boolValue];
     return _onPremisesSyncEnabled;
 }
+
 - (void) setOnPremisesSyncEnabled: (BOOL) val
 {
     _onPremisesSyncEnabled = val;
     self.dictionary[@"onPremisesSyncEnabled"] = @(val);
 }
+
 - (NSString*) postalCode
 {
+    if([[NSNull null] isEqual:self.dictionary[@"postalCode"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"postalCode"];
 }
+
 - (void) setPostalCode: (NSString*) val
 {
     self.dictionary[@"postalCode"] = val;
 }
+
 - (NSString*) preferredLanguage
 {
+    if([[NSNull null] isEqual:self.dictionary[@"preferredLanguage"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"preferredLanguage"];
 }
+
 - (void) setPreferredLanguage: (NSString*) val
 {
     self.dictionary[@"preferredLanguage"] = val;
 }
+
 - (NSArray*) provisionedPlans
 {
     if(!_provisionedPlans){
@@ -171,51 +219,71 @@
     }
     return _provisionedPlans;
 }
+
 - (void) setProvisionedPlans: (NSArray*) val
 {
     _provisionedPlans = val;
     self.dictionary[@"provisionedPlans"] = val;
 }
+
 - (NSArray*) securityComplianceNotificationMails
 {
     return self.dictionary[@"securityComplianceNotificationMails"];
 }
+
 - (void) setSecurityComplianceNotificationMails: (NSArray*) val
 {
     self.dictionary[@"securityComplianceNotificationMails"] = val;
 }
+
 - (NSArray*) securityComplianceNotificationPhones
 {
     return self.dictionary[@"securityComplianceNotificationPhones"];
 }
+
 - (void) setSecurityComplianceNotificationPhones: (NSArray*) val
 {
     self.dictionary[@"securityComplianceNotificationPhones"] = val;
 }
+
 - (NSString*) state
 {
+    if([[NSNull null] isEqual:self.dictionary[@"state"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"state"];
 }
+
 - (void) setState: (NSString*) val
 {
     self.dictionary[@"state"] = val;
 }
+
 - (NSString*) street
 {
+    if([[NSNull null] isEqual:self.dictionary[@"street"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"street"];
 }
+
 - (void) setStreet: (NSString*) val
 {
     self.dictionary[@"street"] = val;
 }
+
 - (NSArray*) technicalNotificationMails
 {
     return self.dictionary[@"technicalNotificationMails"];
 }
+
 - (void) setTechnicalNotificationMails: (NSArray*) val
 {
     self.dictionary[@"technicalNotificationMails"] = val;
 }
+
 - (NSArray*) verifiedDomains
 {
     if(!_verifiedDomains){
@@ -234,10 +302,51 @@
     }
     return _verifiedDomains;
 }
+
 - (void) setVerifiedDomains: (NSArray*) val
 {
     _verifiedDomains = val;
     self.dictionary[@"verifiedDomains"] = val;
 }
+
+- (MSGraphMdmAuthority*) mobileDeviceManagementAuthority
+{
+    if(!_mobileDeviceManagementAuthority){
+        _mobileDeviceManagementAuthority = [self.dictionary[@"mobileDeviceManagementAuthority"] toMSGraphMdmAuthority];
+    }
+    return _mobileDeviceManagementAuthority;
+}
+
+- (void) setMobileDeviceManagementAuthority: (MSGraphMdmAuthority*) val
+{
+    _mobileDeviceManagementAuthority = val;
+    self.dictionary[@"mobileDeviceManagementAuthority"] = val;
+}
+
+- (NSArray*) extensions
+{
+    if(!_extensions){
+        
+    NSMutableArray *extensionsResult = [NSMutableArray array];
+    NSArray *extensions = self.dictionary[@"extensions"];
+
+    if ([extensions isKindOfClass:[NSArray class]]){
+        for (id extension in extensions){
+            [extensionsResult addObject:[[MSGraphExtension alloc] initWithDictionary: extension]];
+        }
+    }
+
+    _extensions = extensionsResult;
+        
+    }
+    return _extensions;
+}
+
+- (void) setExtensions: (NSArray*) val
+{
+    _extensions = val;
+    self.dictionary[@"extensions"] = val;
+}
+
 
 @end

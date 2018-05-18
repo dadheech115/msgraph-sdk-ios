@@ -4,16 +4,16 @@
 
 #import "MSGraphODataEntities.h"
 
-@implementation MSGraphDrivesCollectionRequestBuilder : MSCollectionRequestBuilder
+@implementation MSGraphGraphServiceDrivesCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphDrivesCollectionRequest*) request
+- (MSGraphGraphServiceDrivesCollectionRequest*) request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDrivesCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGraphServiceDrivesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDrivesCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGraphServiceDrivesCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphDriveRequestBuilder *)drive:(NSString *)drive
 {

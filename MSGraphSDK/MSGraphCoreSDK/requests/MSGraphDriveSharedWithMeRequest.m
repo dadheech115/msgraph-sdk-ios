@@ -14,7 +14,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -42,7 +42,7 @@
                                                       completion:^(MSCollection *collectionResponse, NSError *error){
                                       if(!error && collectionResponse.nextLink && completionHandler){
                                               MSGraphDriveSharedWithMeRequest *nextRequest = [[MSGraphDriveSharedWithMeRequest alloc] initWithURL:collectionResponse.nextLink
-                                                                                                                  options:nil
+                                                                                                                  requestOptions:nil
                                                                                                                   client:self.client];
                                           completionHandler(collectionResponse, nextRequest, nil);
                                       }

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphDirectoryObjectsCollectionRequest, MSGraphDirectoryObjectRequestBuilder;
+@class MSGraphGraphServiceDirectoryObjectsCollectionRequest, MSGraphDirectoryObjectRequestBuilder;
 
 #import "MSGraphModels.h"
 #import "MSCollectionRequestBuilder.h"
@@ -9,11 +9,11 @@
 
 
 
-@interface MSGraphDirectoryObjectsCollectionRequestBuilder : MSCollectionRequestBuilder
+@interface MSGraphGraphServiceDirectoryObjectsCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphDirectoryObjectsCollectionRequest *)request;
+- (MSGraphGraphServiceDirectoryObjectsCollectionRequest *)request;
 
-- (MSGraphDirectoryObjectsCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGraphServiceDirectoryObjectsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphDirectoryObjectRequestBuilder *)directoryObject:(NSString *)directoryObject;
 

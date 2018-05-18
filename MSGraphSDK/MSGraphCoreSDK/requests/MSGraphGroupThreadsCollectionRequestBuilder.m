@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupThreadsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupThreadsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphGroupThreadsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphGroupThreadsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphConversationThreadRequestBuilder *)conversationThread:(NSString *)conversationThread
 {

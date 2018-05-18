@@ -9,7 +9,9 @@
 
 @interface MSGraphShared : MSObject
 
-	@property (nonatomic, setter=setOwner:, getter=owner) MSGraphIdentitySet* owner;
-		@property (nonatomic, setter=setScope:, getter=scope) NSString* scope;
-	
+@property (nullable, nonatomic, setter=setOwner:, getter=owner) MSGraphIdentitySet* owner;
+@property (nullable, nonatomic, setter=setScope:, getter=scope) NSString* scope;
+@property (nullable, nonatomic, setter=setSharedBy:, getter=sharedBy) MSGraphIdentitySet* sharedBy;
+@property (nullable, nonatomic, setter=setSharedDateTime:, getter=sharedDateTime) NSDate* sharedDateTime;
+
 @end

@@ -5,8 +5,14 @@
 @class MSURLSessionDataTask;
 @class MSGraphMessageRequestBuilder;
 @class MSGraphMessagesCollectionRequestBuilder;
+@class MSGraphMessageRuleRequestBuilder;
+@class MSGraphMessageRulesCollectionRequestBuilder;
 @class MSGraphMailFolderRequestBuilder;
 @class MSGraphChildFoldersCollectionRequestBuilder;
+@class MSGraphSingleValueLegacyExtendedPropertyRequestBuilder;
+@class MSGraphSingleValueExtendedPropertiesCollectionRequestBuilder;
+@class MSGraphMultiValueLegacyExtendedPropertyRequestBuilder;
+@class MSGraphMultiValueExtendedPropertiesCollectionRequestBuilder;
 #import "MSGraphModels.h"
 #import "MSRequest.h"
 

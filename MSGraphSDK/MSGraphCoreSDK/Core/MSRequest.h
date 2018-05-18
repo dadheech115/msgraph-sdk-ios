@@ -48,7 +48,7 @@ typedef id (^MSObjectWithDictionary)(NSDictionary *response);
  @param client The client to make the request.
  @see MSRequestOptionsBuilder
  */
-- (instancetype)initWithURL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient *)client;
+- (instancetype)initWithURL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient *)client;
 
 /**
  Appends a select option to the request.

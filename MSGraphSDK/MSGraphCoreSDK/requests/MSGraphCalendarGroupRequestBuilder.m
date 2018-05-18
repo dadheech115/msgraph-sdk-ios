@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphCalendarGroupRequest.h"
+#import "MSGraphCalendarGroupRequestBuilder.h"
+
 
 @implementation MSGraphCalendarGroupRequestBuilder
 
@@ -23,9 +26,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphCalendarGroupRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphCalendarGroupRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphCalendarGroupRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphCalendarGroupRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

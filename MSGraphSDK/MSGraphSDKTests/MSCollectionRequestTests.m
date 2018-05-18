@@ -49,7 +49,7 @@
         XCTAssertEqual([response.value count], _values.count);
         [response.value enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
             XCTAssertTrue([obj isKindOfClass:[NSArray class]]);
-            XCTAssertEqual([obj count], 1);
+            XCTAssertEqual([(NSArray *)obj count], 1);
             XCTAssertTrue([_values containsObject:obj[0]]);
         }];
         

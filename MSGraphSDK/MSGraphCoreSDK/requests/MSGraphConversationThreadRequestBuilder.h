@@ -18,11 +18,9 @@
 - (MSGraphConversationThreadReplyRequestBuilder *)replyWithPost:(MSGraphPost *)post ;
 
 
-
-
 - (MSGraphConversationThreadRequest *) request;
 
-- (MSGraphConversationThreadRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphConversationThreadRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

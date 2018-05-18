@@ -25,21 +25,21 @@
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphUserCreatedObjectsCollectionWithReferencesCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphDirectoryObject alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphUserCreatedObjectsCollectionWithReferencesRequest *nextRequest = [[MSGraphUserCreatedObjectsCollectionWithReferencesRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphUserCreatedObjectsCollectionWithReferencesRequest *nextRequest = [[MSGraphUserCreatedObjectsCollectionWithReferencesRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

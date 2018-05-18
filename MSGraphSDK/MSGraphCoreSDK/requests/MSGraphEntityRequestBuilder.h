@@ -14,7 +14,7 @@
 
 - (MSGraphEntityRequest *) request;
 
-- (MSGraphEntityRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphEntityRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

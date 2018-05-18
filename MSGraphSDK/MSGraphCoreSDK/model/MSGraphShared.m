@@ -16,6 +16,8 @@
 {
     MSGraphIdentitySet* _owner;
     NSString* _scope;
+    MSGraphIdentitySet* _sharedBy;
+    NSDate* _sharedDateTime;
 }
 @end
 
@@ -28,17 +30,53 @@
     }
     return _owner;
 }
+
 - (void) setOwner: (MSGraphIdentitySet*) val
 {
     _owner = val;
     self.dictionary[@"owner"] = val;
 }
+
 - (NSString*) scope
 {
+    if([[NSNull null] isEqual:self.dictionary[@"scope"]])
+    {
+        return nil;
+    }   
     return self.dictionary[@"scope"];
 }
+
 - (void) setScope: (NSString*) val
 {
     self.dictionary[@"scope"] = val;
 }
+
+- (MSGraphIdentitySet*) sharedBy
+{
+    if(!_sharedBy){
+        _sharedBy = [[MSGraphIdentitySet alloc] initWithDictionary: self.dictionary[@"sharedBy"]];
+    }
+    return _sharedBy;
+}
+
+- (void) setSharedBy: (MSGraphIdentitySet*) val
+{
+    _sharedBy = val;
+    self.dictionary[@"sharedBy"] = val;
+}
+
+- (NSDate*) sharedDateTime
+{
+    if(!_sharedDateTime){
+        _sharedDateTime = [NSDate ms_dateFromString: self.dictionary[@"sharedDateTime"]];
+    }
+    return _sharedDateTime;
+}
+
+- (void) setSharedDateTime: (NSDate*) val
+{
+    _sharedDateTime = val;
+    self.dictionary[@"sharedDateTime"] = val;
+}
+
 @end

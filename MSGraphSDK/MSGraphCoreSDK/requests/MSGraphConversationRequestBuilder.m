@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphConversationRequest.h"
+#import "MSGraphConversationRequestBuilder.h"
+
 
 @implementation MSGraphConversationRequestBuilder
 
@@ -23,9 +26,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphConversationRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphConversationRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphConversationRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphConversationRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

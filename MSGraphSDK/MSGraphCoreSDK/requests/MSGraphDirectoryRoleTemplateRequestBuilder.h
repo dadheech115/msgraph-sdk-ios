@@ -14,7 +14,7 @@
 
 - (MSGraphDirectoryRoleTemplateRequest *) request;
 
-- (MSGraphDirectoryRoleTemplateRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphDirectoryRoleTemplateRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

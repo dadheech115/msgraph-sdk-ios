@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventDeclineRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphEventDeclineRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphEventDeclineRequest alloc] initWithComment:self.comment
                                                   sendResponse:self.sendResponse
                                                            URL:self.requestURL
-                                                       options:options
+                                                requestOptions:requestOptions
                                                         client:self.client];
 
 }

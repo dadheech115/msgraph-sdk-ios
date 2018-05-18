@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphDeviceRequest.h"
+#import "MSGraphDeviceRequestBuilder.h"
+
 
 @implementation MSGraphDeviceRequestBuilder
 
@@ -28,15 +31,26 @@
     return [[self registeredUsers] directoryObject:directoryObject];
 }
 
+- (MSGraphDeviceExtensionsCollectionRequestBuilder *)extensions
+{
+    return [[MSGraphDeviceExtensionsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"extensions"]  
+                                                                         client:self.client];
+}
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension
+{
+    return [[self extensions] extension:extension];
+}
+
 
 - (MSGraphDeviceRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDeviceRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphDeviceRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDeviceRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDeviceRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

@@ -10,10 +10,11 @@
 
 @interface MSGraphUserAssignLicenseRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithAddLicenses:(NSArray *)addLicenses removeLicenses:(NSArray *)removeLicenses URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphUserAssignLicenseRequest *)request;
 
-- (MSGraphUserAssignLicenseRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserAssignLicenseRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

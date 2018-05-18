@@ -4,6 +4,7 @@
 
 #import "MSGraphODataEntities.h"
 #import "MSURLSessionDataTask.h"
+#import "MSGraphThumbnailRequest.h"
 
 @interface MSRequest()
 

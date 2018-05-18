@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDirectoryObjectGetMemberObjectsRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDirectoryObjectGetMemberObjectsRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphDirectoryObjectGetMemberObjectsRequest alloc] initWithSecurityEnabledOnly:self.securityEnabledOnly
                                                                                           URL:self.requestURL
-                                                                                      options:options
+                                                                               requestOptions:requestOptions
                                                                                        client:self.client];
 
 }

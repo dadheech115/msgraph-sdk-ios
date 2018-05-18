@@ -14,7 +14,7 @@
 
 - (MSGraphOutlookItemRequest *) request;
 
-- (MSGraphOutlookItemRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphOutlookItemRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

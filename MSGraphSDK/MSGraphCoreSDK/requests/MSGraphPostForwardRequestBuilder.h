@@ -10,10 +10,11 @@
 
 @interface MSGraphPostForwardRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithComment:(NSString *)comment toRecipients:(NSArray *)toRecipients URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphPostForwardRequest *)request;
 
-- (MSGraphPostForwardRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphPostForwardRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

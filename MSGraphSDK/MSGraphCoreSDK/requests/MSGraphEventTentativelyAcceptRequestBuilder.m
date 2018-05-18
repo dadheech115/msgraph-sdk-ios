@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventTentativelyAcceptRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphEventTentativelyAcceptRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphEventTentativelyAcceptRequest alloc] initWithComment:self.comment
                                                             sendResponse:self.sendResponse
                                                                      URL:self.requestURL
-                                                                 options:options
+                                                          requestOptions:requestOptions
                                                                   client:self.client];
 
 }

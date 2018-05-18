@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphItemAttachmentRequest.h"
+#import "MSGraphItemAttachmentRequestBuilder.h"
+
 
 @implementation MSGraphItemAttachmentRequestBuilder
 
@@ -18,9 +21,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphItemAttachmentRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphItemAttachmentRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphItemAttachmentRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphItemAttachmentRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

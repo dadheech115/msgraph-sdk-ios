@@ -13,7 +13,7 @@
                                    headers:(NSDictionary *)headers;
 @end
 
-@implementation MSGraphDirectoryObjectsCollectionRequest
+@implementation MSGraphGraphServiceDirectoryObjectsCollectionRequest
 
 - (NSMutableURLRequest *)get
 {
@@ -22,24 +22,24 @@
                            headers:nil];
 }
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphDirectoryObjectsCollectionCompletionHandler)completionHandler
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceDirectoryObjectsCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphDirectoryObject alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphDirectoryObjectsCollectionRequest *nextRequest = [[MSGraphDirectoryObjectsCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphGraphServiceDirectoryObjectsCollectionRequest *nextRequest = [[MSGraphGraphServiceDirectoryObjectsCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -57,13 +57,13 @@
 
 - (MSURLSessionDataTask *)addDirectoryObject:(MSGraphDirectoryObject*)directoryObject withCompletion:(MSGraphDirectoryObjectCompletionHandler)completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self addDirectoryObject:directoryObject]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addDirectoryObject:directoryObject]
 							     odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphDirectoryObject alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

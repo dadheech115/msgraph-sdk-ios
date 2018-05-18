@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMailFolderMessagesCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMailFolderMessagesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphMailFolderMessagesCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphMailFolderMessagesCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphMessageRequestBuilder *)message:(NSString *)message
 {

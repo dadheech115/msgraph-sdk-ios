@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupResetUnseenCountRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupResetUnseenCountRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphGroupResetUnseenCountRequest alloc] initWithURL:self.requestURL client:self.client];
 }

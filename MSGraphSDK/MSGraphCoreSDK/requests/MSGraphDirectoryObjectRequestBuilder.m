@@ -3,8 +3,22 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphDirectoryObjectRequest.h"
+#import "MSGraphDirectoryObjectRequestBuilder.h"
+
 
 @implementation MSGraphDirectoryObjectRequestBuilder
+
+- (MSGraphDirectoryObjectGetByIdsRequestBuilder *)getByIdsWithIds:(NSArray *)ids types:(NSArray *)types 
+{
+    NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"microsoft.graph.getByIds"];
+    return [[MSGraphDirectoryObjectGetByIdsRequestBuilder alloc] initWithIds:ids
+                                                                       types:types
+                                                                         URL:actionURL
+                                                                      client:self.client];
+
+
+}
 
 - (MSGraphDirectoryObjectCheckMemberGroupsRequestBuilder *)checkMemberGroupsWithGroupIds:(NSArray *)groupIds 
 {
@@ -36,15 +50,20 @@
 
 }
 
+- (MSGraphDirectoryObjectRestoreRequestBuilder *)restore
+{
+    return [[MSGraphDirectoryObjectRestoreRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.restore"] client:self.client];
+}
+
 
 - (MSGraphDirectoryObjectRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDirectoryObjectRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphDirectoryObjectRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDirectoryObjectRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDirectoryObjectRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

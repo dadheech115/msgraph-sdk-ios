@@ -14,7 +14,7 @@
 
 - (MSGraphAttachmentRequest *) request;
 
-- (MSGraphAttachmentRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphAttachmentRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

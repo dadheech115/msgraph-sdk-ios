@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemThumbnailsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDriveItemThumbnailsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDriveItemThumbnailsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphThumbnailSetRequestBuilder *)thumbnailSet:(NSString *)thumbnailSet
 {

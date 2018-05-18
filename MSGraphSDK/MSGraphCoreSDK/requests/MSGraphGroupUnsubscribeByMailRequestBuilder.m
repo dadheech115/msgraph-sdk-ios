@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphGroupUnsubscribeByMailRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphGroupUnsubscribeByMailRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphGroupUnsubscribeByMailRequest alloc] initWithURL:self.requestURL client:self.client];
 }

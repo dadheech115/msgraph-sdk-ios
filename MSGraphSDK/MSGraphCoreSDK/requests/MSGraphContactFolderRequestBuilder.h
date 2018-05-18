@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphContactFolderRequest, MSGraphContactRequestBuilder, MSGraphContactFolderContactsCollectionRequestBuilder, MSGraphContactFolderRequestBuilder, MSGraphContactFolderChildFoldersCollectionRequestBuilder;
+@class MSGraphContactFolderRequest, MSGraphContactRequestBuilder, MSGraphContactFolderContactsCollectionRequestBuilder, MSGraphContactFolderRequestBuilder, MSGraphContactFolderChildFoldersCollectionRequestBuilder, MSGraphSingleValueLegacyExtendedPropertyRequestBuilder, MSGraphContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder, MSGraphMultiValueLegacyExtendedPropertyRequestBuilder, MSGraphContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder, MSGraphContactFolderDeltaRequestBuilder;
 
 
 #import "MSGraphModels.h"
@@ -19,10 +19,20 @@
 
 - (MSGraphContactFolderRequestBuilder *)childFolders:(NSString *)contactFolder;
 
+- (MSGraphContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder *)singleValueExtendedProperties;
+
+- (MSGraphSingleValueLegacyExtendedPropertyRequestBuilder *)singleValueExtendedProperties:(NSString *)singleValueLegacyExtendedProperty;
+
+- (MSGraphContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder *)multiValueExtendedProperties;
+
+- (MSGraphMultiValueLegacyExtendedPropertyRequestBuilder *)multiValueExtendedProperties:(NSString *)multiValueLegacyExtendedProperty;
+
+- (MSGraphContactFolderDeltaRequestBuilder *)delta;
+
 
 - (MSGraphContactFolderRequest *) request;
 
-- (MSGraphContactFolderRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphContactFolderRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

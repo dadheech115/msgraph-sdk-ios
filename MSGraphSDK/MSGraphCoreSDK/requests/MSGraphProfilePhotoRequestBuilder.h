@@ -14,7 +14,7 @@
 
 - (MSGraphProfilePhotoRequest *) request;
 
-- (MSGraphProfilePhotoRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphProfilePhotoRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

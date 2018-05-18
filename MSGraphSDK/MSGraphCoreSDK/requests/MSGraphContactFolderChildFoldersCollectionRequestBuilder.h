@@ -13,7 +13,7 @@
 
 - (MSGraphContactFolderChildFoldersCollectionRequest *)request;
 
-- (MSGraphContactFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphContactFolderChildFoldersCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphContactFolderRequestBuilder *)contactFolder:(NSString *)contactFolder;
 

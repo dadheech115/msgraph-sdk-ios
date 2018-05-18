@@ -2,37 +2,37 @@
 
 
 
-@class MSGraphDriveRequest, MSGraphDriveItemRequestBuilder, MSGraphDriveItemsCollectionRequestBuilder, MSGraphDriveSpecialCollectionRequestBuilder, MSGraphRootRequestBuilder, MSGraphDriveRecentRequestBuilder, MSGraphDriveSharedWithMeRequestBuilder;
+@class MSGraphDriveRequest, MSGraphDriveItemRequestBuilder, MSGraphDriveItemsCollectionRequestBuilder, MSGraphListRequestBuilder, MSGraphRootRequestBuilder, MSGraphDriveSpecialCollectionRequestBuilder, MSGraphDriveRecentRequestBuilder, MSGraphDriveSearchRequestBuilder, MSGraphDriveSharedWithMeRequestBuilder;
 
 
 #import "MSGraphModels.h"
-#import "MSGraphEntityRequestBuilder.h"
+#import "MSGraphBaseItemRequestBuilder.h"
 
 
-@interface MSGraphDriveRequestBuilder : MSGraphEntityRequestBuilder
+@interface MSGraphDriveRequestBuilder : MSGraphBaseItemRequestBuilder
 
 - (MSGraphDriveItemsCollectionRequestBuilder *)items;
 
 - (MSGraphDriveItemRequestBuilder *)items:(NSString *)driveItem;
 
+- (MSGraphListRequestBuilder *) list;
+
+- (MSGraphDriveItemRequestBuilder *) root;
+
 - (MSGraphDriveSpecialCollectionRequestBuilder *)special;
 
 - (MSGraphDriveItemRequestBuilder *)special:(NSString *)driveItem;
 
-- (MSGraphDriveItemRequestBuilder *) root;
-
 - (MSGraphDriveRecentRequestBuilder *)recent;
 
-
+- (MSGraphDriveSearchRequestBuilder *)searchWithQ:(NSString *)q ;
 
 - (MSGraphDriveSharedWithMeRequestBuilder *)sharedWithMe;
 
 
-
-
 - (MSGraphDriveRequest *) request;
 
-- (MSGraphDriveRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphDriveRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

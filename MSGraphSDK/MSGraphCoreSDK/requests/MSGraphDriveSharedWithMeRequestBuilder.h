@@ -10,8 +10,9 @@
 
 @interface MSGraphDriveSharedWithMeRequestBuilder : MSRequestBuilder
 
+
 - (MSGraphDriveSharedWithMeRequest *)request;
 
-- (MSGraphDriveSharedWithMeRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveSharedWithMeRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

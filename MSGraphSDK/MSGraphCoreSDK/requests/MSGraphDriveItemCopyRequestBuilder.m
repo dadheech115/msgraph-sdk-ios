@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemCopyRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemCopyRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphDriveItemCopyRequest alloc] initWithName:self.name
                                              parentReference:self.parentReference
                                                          URL:self.requestURL
-                                                     options:options
+                                              requestOptions:requestOptions
                                                       client:self.client];
 
 }

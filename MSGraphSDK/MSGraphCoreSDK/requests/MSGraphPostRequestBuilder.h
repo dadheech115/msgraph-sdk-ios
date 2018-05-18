@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphPostRequest, MSGraphPostRequestBuilder, MSGraphInReplyToRequestBuilder, MSGraphAttachmentRequestBuilder, MSGraphPostAttachmentsCollectionRequestBuilder, MSGraphPostForwardRequestBuilder, MSGraphPostReplyRequestBuilder;
+@class MSGraphPostRequest, MSGraphExtensionRequestBuilder, MSGraphPostExtensionsCollectionRequestBuilder, MSGraphPostRequestBuilder, MSGraphInReplyToRequestBuilder, MSGraphAttachmentRequestBuilder, MSGraphPostAttachmentsCollectionRequestBuilder, MSGraphSingleValueLegacyExtendedPropertyRequestBuilder, MSGraphPostSingleValueExtendedPropertiesCollectionRequestBuilder, MSGraphMultiValueLegacyExtendedPropertyRequestBuilder, MSGraphPostMultiValueExtendedPropertiesCollectionRequestBuilder, MSGraphPostForwardRequestBuilder, MSGraphPostReplyRequestBuilder;
 
 
 #import "MSGraphModels.h"
@@ -11,24 +11,32 @@
 
 @interface MSGraphPostRequestBuilder : MSGraphOutlookItemRequestBuilder
 
+- (MSGraphPostExtensionsCollectionRequestBuilder *)extensions;
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension;
+
 - (MSGraphPostRequestBuilder *) inReplyTo;
 
 - (MSGraphPostAttachmentsCollectionRequestBuilder *)attachments;
 
 - (MSGraphAttachmentRequestBuilder *)attachments:(NSString *)attachment;
 
+- (MSGraphPostSingleValueExtendedPropertiesCollectionRequestBuilder *)singleValueExtendedProperties;
+
+- (MSGraphSingleValueLegacyExtendedPropertyRequestBuilder *)singleValueExtendedProperties:(NSString *)singleValueLegacyExtendedProperty;
+
+- (MSGraphPostMultiValueExtendedPropertiesCollectionRequestBuilder *)multiValueExtendedProperties;
+
+- (MSGraphMultiValueLegacyExtendedPropertyRequestBuilder *)multiValueExtendedProperties:(NSString *)multiValueLegacyExtendedProperty;
+
 - (MSGraphPostForwardRequestBuilder *)forwardWithComment:(NSString *)comment toRecipients:(NSArray *)toRecipients ;
-
-
 
 - (MSGraphPostReplyRequestBuilder *)replyWithPost:(MSGraphPost *)post ;
 
 
-
-
 - (MSGraphPostRequest *) request;
 
-- (MSGraphPostRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphPostRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

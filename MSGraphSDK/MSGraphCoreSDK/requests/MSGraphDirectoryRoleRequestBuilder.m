@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphDirectoryRoleRequest.h"
+#import "MSGraphDirectoryRoleRequestBuilder.h"
+
 
 @implementation MSGraphDirectoryRoleRequestBuilder
 
@@ -23,9 +26,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDirectoryRoleRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphDirectoryRoleRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDirectoryRoleRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDirectoryRoleRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

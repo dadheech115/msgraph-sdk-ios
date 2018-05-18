@@ -13,7 +13,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -31,10 +31,10 @@
 @implementation MSGraphDirectoryObjectCheckMemberGroupsRequest
 
 
-- (instancetype)initWithGroupIds:(NSArray *)groupIds URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+- (instancetype)initWithGroupIds:(NSArray *)groupIds URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
 {
     NSParameterAssert(groupIds);
-    self = [super initWithURL:url options:options client:client];
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
     if (self){
         _groupIds = groupIds;
     }
@@ -56,12 +56,12 @@
 
     MSURLSessionDataTask *task = [self collectionTaskWithRequest:self.mutableRequest
                                           odObjectWithDictionary:^(id responseObject){
-                                                                     return [responseObject copy];
+                                                                     return [[MSObject alloc] initWithDictionary:responseObject];
                                                                  }
                                                       completion:^(MSCollection *collectionResponse, NSError *error){
                                       if(!error && collectionResponse.nextLink && completionHandler){
                                               MSGraphDirectoryObjectCheckMemberGroupsRequest *nextRequest = [[MSGraphDirectoryObjectCheckMemberGroupsRequest alloc] initWithURL:collectionResponse.nextLink
-                                                                                                                  options:nil
+                                                                                                                  requestOptions:nil
                                                                                                                   client:self.client];
                                           completionHandler(collectionResponse, nextRequest, nil);
                                       }

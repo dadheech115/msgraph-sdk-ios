@@ -6,6 +6,7 @@
 
 #import "MSGraphODataEntities.h"
 #import "MSURLSessionDataTask.h"
+#import "MSGraphDirectoryObjectReferenceRequest.h"
 
 @interface MSRequest()
 
@@ -37,11 +38,11 @@
 
 - (MSURLSessionDataTask *)deleteWithCompletion:(void(^)(NSError *error))completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self delete] completion:^(NSDictionary *response, NSError *error){
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self delete] completion:^(NSDictionary *response, NSError *error){
                                                                     completionHandler(error);
                                                                  }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

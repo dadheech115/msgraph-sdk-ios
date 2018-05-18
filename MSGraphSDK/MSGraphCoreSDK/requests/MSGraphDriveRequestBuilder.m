@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphDriveRequest.h"
+#import "MSGraphDriveRequestBuilder.h"
+
 
 @implementation MSGraphDriveRequestBuilder
 
@@ -17,6 +20,18 @@
     return [[self items] driveItem:driveItem];
 }
 
+-(MSGraphListRequestBuilder *)list
+{
+    return [[MSGraphListRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"list"] client:self.client];
+
+}
+
+-(MSGraphDriveItemRequestBuilder *)root
+{
+    return [[MSGraphDriveItemRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"root"] client:self.client];
+
+}
+
 - (MSGraphDriveSpecialCollectionRequestBuilder *)special
 {
     return [[MSGraphDriveSpecialCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"special"]  
@@ -28,15 +43,19 @@
     return [[self special] driveItem:driveItem];
 }
 
--(MSGraphDriveItemRequestBuilder *)root
-{
-    return [[MSGraphDriveItemRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"root"] client:self.client];
-
-}
-
 - (MSGraphDriveRecentRequestBuilder *)recent
 {
     return [[MSGraphDriveRecentRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.recent"] client:self.client];
+}
+
+- (MSGraphDriveSearchRequestBuilder *)searchWithQ:(NSString *)q 
+{
+    NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"microsoft.graph.search"];
+    return [[MSGraphDriveSearchRequestBuilder alloc] initWithQ:q
+                                                           URL:actionURL
+                                                        client:self.client];
+
+
 }
 
 - (MSGraphDriveSharedWithMeRequestBuilder *)sharedWithMe
@@ -50,9 +69,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphDriveRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDriveRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDriveRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

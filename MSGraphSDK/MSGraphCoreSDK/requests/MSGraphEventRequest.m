@@ -4,6 +4,7 @@
 
 #import "MSGraphODataEntities.h"
 #import "MSURLSessionDataTask.h"
+#import "MSGraphEventRequest.h"
 
 @interface MSRequest()
 
@@ -33,13 +34,13 @@
 
 - (MSURLSessionDataTask *)getWithCompletion:(void (^)(MSGraphEvent *response, NSError *error))completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self get]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self get]
                                 odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphEvent alloc] initWithDictionary:response];
                                         }
                                              completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -54,13 +55,13 @@
 
 - (MSURLSessionDataTask *)update:(MSGraphEvent *)event withCompletion:(void (^)(MSGraphEvent *response, NSError *error))completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self update:event]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self update:event]
                                 odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphEvent alloc] initWithDictionary:response];
                                         }
                                               completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 
@@ -74,11 +75,11 @@
 
 - (MSURLSessionDataTask *)deleteWithCompletion:(void(^)(NSError *error))completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self delete] completion:^(NSDictionary *response, NSError *error){
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self delete] completion:^(NSDictionary *response, NSError *error){
                                                                     completionHandler(error);
                                                                  }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

@@ -1,0 +1,78 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
+
+
+
+@class MSGraphDeviceAppManagementRequest, MSGraphMobileAppRequestBuilder, MSGraphDeviceAppManagementMobileAppsCollectionRequestBuilder, MSGraphMobileAppCategoryRequestBuilder, MSGraphDeviceAppManagementMobileAppCategoriesCollectionRequestBuilder, MSGraphManagedDeviceMobileAppConfigurationRequestBuilder, MSGraphDeviceAppManagementMobileAppConfigurationsCollectionRequestBuilder, MSGraphVppTokenRequestBuilder, MSGraphDeviceAppManagementVppTokensCollectionRequestBuilder, MSGraphManagedAppPolicyRequestBuilder, MSGraphDeviceAppManagementManagedAppPoliciesCollectionRequestBuilder, MSGraphIosManagedAppProtectionRequestBuilder, MSGraphDeviceAppManagementIosManagedAppProtectionsCollectionRequestBuilder, MSGraphAndroidManagedAppProtectionRequestBuilder, MSGraphDeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder, MSGraphDefaultManagedAppProtectionRequestBuilder, MSGraphDeviceAppManagementDefaultManagedAppProtectionsCollectionRequestBuilder, MSGraphTargetedManagedAppConfigurationRequestBuilder, MSGraphDeviceAppManagementTargetedManagedAppConfigurationsCollectionRequestBuilder, MSGraphMdmWindowsInformationProtectionPolicyRequestBuilder, MSGraphDeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequestBuilder, MSGraphWindowsInformationProtectionPolicyRequestBuilder, MSGraphDeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequestBuilder, MSGraphManagedAppRegistrationRequestBuilder, MSGraphDeviceAppManagementManagedAppRegistrationsCollectionRequestBuilder, MSGraphManagedAppStatusRequestBuilder, MSGraphDeviceAppManagementManagedAppStatusesCollectionRequestBuilder, MSGraphManagedEBookRequestBuilder, MSGraphDeviceAppManagementManagedEBooksCollectionRequestBuilder, MSGraphDeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder;
+
+
+#import "MSGraphModels.h"
+#import "MSGraphEntityRequestBuilder.h"
+
+
+@interface MSGraphDeviceAppManagementRequestBuilder : MSGraphEntityRequestBuilder
+
+- (MSGraphDeviceAppManagementMobileAppsCollectionRequestBuilder *)mobileApps;
+
+- (MSGraphMobileAppRequestBuilder *)mobileApps:(NSString *)mobileApp;
+
+- (MSGraphDeviceAppManagementMobileAppCategoriesCollectionRequestBuilder *)mobileAppCategories;
+
+- (MSGraphMobileAppCategoryRequestBuilder *)mobileAppCategories:(NSString *)mobileAppCategory;
+
+- (MSGraphDeviceAppManagementMobileAppConfigurationsCollectionRequestBuilder *)mobileAppConfigurations;
+
+- (MSGraphManagedDeviceMobileAppConfigurationRequestBuilder *)mobileAppConfigurations:(NSString *)managedDeviceMobileAppConfiguration;
+
+- (MSGraphDeviceAppManagementVppTokensCollectionRequestBuilder *)vppTokens;
+
+- (MSGraphVppTokenRequestBuilder *)vppTokens:(NSString *)vppToken;
+
+- (MSGraphDeviceAppManagementManagedAppPoliciesCollectionRequestBuilder *)managedAppPolicies;
+
+- (MSGraphManagedAppPolicyRequestBuilder *)managedAppPolicies:(NSString *)managedAppPolicy;
+
+- (MSGraphDeviceAppManagementIosManagedAppProtectionsCollectionRequestBuilder *)iosManagedAppProtections;
+
+- (MSGraphIosManagedAppProtectionRequestBuilder *)iosManagedAppProtections:(NSString *)iosManagedAppProtection;
+
+- (MSGraphDeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder *)androidManagedAppProtections;
+
+- (MSGraphAndroidManagedAppProtectionRequestBuilder *)androidManagedAppProtections:(NSString *)androidManagedAppProtection;
+
+- (MSGraphDeviceAppManagementDefaultManagedAppProtectionsCollectionRequestBuilder *)defaultManagedAppProtections;
+
+- (MSGraphDefaultManagedAppProtectionRequestBuilder *)defaultManagedAppProtections:(NSString *)defaultManagedAppProtection;
+
+- (MSGraphDeviceAppManagementTargetedManagedAppConfigurationsCollectionRequestBuilder *)targetedManagedAppConfigurations;
+
+- (MSGraphTargetedManagedAppConfigurationRequestBuilder *)targetedManagedAppConfigurations:(NSString *)targetedManagedAppConfiguration;
+
+- (MSGraphDeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequestBuilder *)mdmWindowsInformationProtectionPolicies;
+
+- (MSGraphMdmWindowsInformationProtectionPolicyRequestBuilder *)mdmWindowsInformationProtectionPolicies:(NSString *)mdmWindowsInformationProtectionPolicy;
+
+- (MSGraphDeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequestBuilder *)windowsInformationProtectionPolicies;
+
+- (MSGraphWindowsInformationProtectionPolicyRequestBuilder *)windowsInformationProtectionPolicies:(NSString *)windowsInformationProtectionPolicy;
+
+- (MSGraphDeviceAppManagementManagedAppRegistrationsCollectionRequestBuilder *)managedAppRegistrations;
+
+- (MSGraphManagedAppRegistrationRequestBuilder *)managedAppRegistrations:(NSString *)managedAppRegistration;
+
+- (MSGraphDeviceAppManagementManagedAppStatusesCollectionRequestBuilder *)managedAppStatuses;
+
+- (MSGraphManagedAppStatusRequestBuilder *)managedAppStatuses:(NSString *)managedAppStatus;
+
+- (MSGraphDeviceAppManagementManagedEBooksCollectionRequestBuilder *)managedEBooks;
+
+- (MSGraphManagedEBookRequestBuilder *)managedEBooks:(NSString *)managedEBook;
+
+- (MSGraphDeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder *)syncMicrosoftStoreForBusinessApps;
+
+
+- (MSGraphDeviceAppManagementRequest *) request;
+
+- (MSGraphDeviceAppManagementRequest *) requestWithOptions:(NSArray *)requestOptions;
+
+
+@end

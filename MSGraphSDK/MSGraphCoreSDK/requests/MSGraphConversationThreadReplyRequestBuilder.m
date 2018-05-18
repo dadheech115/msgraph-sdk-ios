@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphConversationThreadReplyRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphConversationThreadReplyRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphConversationThreadReplyRequest alloc] initWithPost:self.post
                                                                    URL:self.requestURL
-                                                               options:options
+                                                        requestOptions:requestOptions
                                                                 client:self.client];
 
 }

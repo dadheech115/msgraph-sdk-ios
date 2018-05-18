@@ -15,6 +15,7 @@
 @interface MSGraphFileSystemInfo()
 {
     NSDate* _createdDateTime;
+    NSDate* _lastAccessedDateTime;
     NSDate* _lastModifiedDateTime;
 }
 @end
@@ -28,11 +29,27 @@
     }
     return _createdDateTime;
 }
+
 - (void) setCreatedDateTime: (NSDate*) val
 {
     _createdDateTime = val;
     self.dictionary[@"createdDateTime"] = val;
 }
+
+- (NSDate*) lastAccessedDateTime
+{
+    if(!_lastAccessedDateTime){
+        _lastAccessedDateTime = [NSDate ms_dateFromString: self.dictionary[@"lastAccessedDateTime"]];
+    }
+    return _lastAccessedDateTime;
+}
+
+- (void) setLastAccessedDateTime: (NSDate*) val
+{
+    _lastAccessedDateTime = val;
+    self.dictionary[@"lastAccessedDateTime"] = val;
+}
+
 - (NSDate*) lastModifiedDateTime
 {
     if(!_lastModifiedDateTime){
@@ -40,9 +57,11 @@
     }
     return _lastModifiedDateTime;
 }
+
 - (void) setLastModifiedDateTime: (NSDate*) val
 {
     _lastModifiedDateTime = val;
     self.dictionary[@"lastModifiedDateTime"] = val;
 }
+
 @end

@@ -14,7 +14,7 @@
 
 @interface MSRequest()
 
-@property NSMutableArray *options;
+@property NSMutableArray *requestOptions;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
@@ -22,12 +22,30 @@
 
 @end
 
+@interface MSGraphDriveItemDeltaRequest()
+
+
+@property (nonatomic, getter=token) NSString * token;
+
+@end
 
 @implementation MSGraphDriveItemDeltaRequest
 
 
+- (instancetype)initWithToken:(NSString *)token URL:(NSURL *)url requestOptions:(NSArray *)requestOptions client:(ODataBaseClient*)client
+{
+    self = [super initWithURL:url requestOptions:requestOptions client:client];
+    if (self){
+        _token = token;
+    }
+    return self;
+}
+
 - (NSMutableURLRequest *)mutableRequest
 {
+    [self.requestOptions addObject:[[MSFunctionParameters alloc] initWithKey:@"token"
+                                                                value:[MSObject getNSJsonSerializationCompatibleValue:_token]]];
+
     return [self requestWithMethod:@"GET" body:nil headers:nil];
 }
 
@@ -42,7 +60,7 @@
                                                       completion:^(MSCollection *collectionResponse, NSError *error){
                                       if(!error && collectionResponse.nextLink && completionHandler){
                                               MSGraphDriveItemDeltaRequest *nextRequest = [[MSGraphDriveItemDeltaRequest alloc] initWithURL:collectionResponse.nextLink
-                                                                                                                  options:nil
+                                                                                                                  requestOptions:nil
                                                                                                                   client:self.client];
                                           completionHandler(collectionResponse, nextRequest, nil);
                                       }

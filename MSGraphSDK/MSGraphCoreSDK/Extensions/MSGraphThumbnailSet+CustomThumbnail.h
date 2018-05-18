@@ -2,6 +2,7 @@
 
 #import "MSGraphThumbnailSet.h"
 #import "MSGraphThumbnailSetRequestBuilder.h"
+#import "MSGraphThumbnailRequestBuilder.h"
 
 @interface MSGraphThumbnailSet (CustomThumbnail)
 

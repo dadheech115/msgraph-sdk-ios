@@ -10,10 +10,11 @@
 
 @interface MSGraphUserReminderViewRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphUserReminderViewRequest *)request;
 
-- (MSGraphUserReminderViewRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserReminderViewRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end

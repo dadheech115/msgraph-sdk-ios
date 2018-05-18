@@ -9,11 +9,11 @@
 
 typedef void (^MSGraphUserCompletionHandler)(MSGraphUser *response, NSError *error);
 
-typedef void (^MSGraphUsersCollectionCompletionHandler)(MSCollection *response, MSGraphUsersCollectionRequest *nextRequest, NSError *error);
+typedef void (^MSGraphGraphServiceUsersCollectionCompletionHandler)(MSCollection *response, MSGraphGraphServiceUsersCollectionRequest *nextRequest, NSError *error);
 
-@interface MSGraphUsersCollectionRequest : MSCollectionRequest
+@interface MSGraphGraphServiceUsersCollectionRequest : MSCollectionRequest
 
-- (MSURLSessionDataTask *)getWithCompletion:(MSGraphUsersCollectionCompletionHandler)completionHandler;
+- (MSURLSessionDataTask *)getWithCompletion:(MSGraphGraphServiceUsersCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addUser:(MSGraphUser*)user withCompletion:(MSGraphUserCompletionHandler)completionHandler;
 

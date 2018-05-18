@@ -14,7 +14,7 @@
 
 - (MSGraphPermissionRequest *) request;
 
-- (MSGraphPermissionRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphPermissionRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

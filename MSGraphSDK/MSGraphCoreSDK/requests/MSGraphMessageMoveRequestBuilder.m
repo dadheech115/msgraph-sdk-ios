@@ -28,12 +28,12 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMessageMoveRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMessageMoveRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphMessageMoveRequest alloc] initWithDestinationId:self.destinationId
                                                                 URL:self.requestURL
-                                                            options:options
+                                                     requestOptions:requestOptions
                                                              client:self.client];
 
 }

@@ -25,21 +25,45 @@
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphDriveItemThumbnailsCollectionCompletionHandler)completionHandler
 {
 
-    MSURLSessionDataTask * task = [self collectionTaskWithRequest:[self get]
+    MSURLSessionDataTask * sessionDataTask = [self collectionTaskWithRequest:[self get]
                                              odObjectWithDictionary:^(id response){
                                             return [[MSGraphThumbnailSet alloc] initWithDictionary:response];
                                          }
                                                         completion:^(MSCollection *collectionResponse, NSError *error){
                                             if(!error && collectionResponse.nextLink && completionHandler){
-                                                MSGraphDriveItemThumbnailsCollectionRequest *nextRequest = [[MSGraphDriveItemThumbnailsCollectionRequest alloc] initWithURL:collectionResponse.nextLink options:nil client:self.client];
+                                                MSGraphDriveItemThumbnailsCollectionRequest *nextRequest = [[MSGraphDriveItemThumbnailsCollectionRequest alloc] initWithURL:collectionResponse.nextLink requestOptions:nil client:self.client];
                                                 completionHandler(collectionResponse, nextRequest, nil);
                                             }
                                             else if(completionHandler){
                                                 completionHandler(collectionResponse, nil, error);
                                             }
                                         }];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
+}
+
+
+
+- (NSMutableURLRequest *)addThumbnailSet:(MSGraphThumbnailSet*)thumbnailSet
+{
+    NSData *body = [NSJSONSerialization dataWithJSONObject:[thumbnailSet dictionaryFromItem]
+                                                   options:0
+                                                     error:nil];
+    return [self requestWithMethod:@"POST"
+                              body:body
+                           headers:nil];
+
+}
+
+- (MSURLSessionDataTask *)addThumbnailSet:(MSGraphThumbnailSet*)thumbnailSet withCompletion:(MSGraphThumbnailSetCompletionHandler)completionHandler
+{
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self addThumbnailSet:thumbnailSet]
+							     odObjectWithDictionary:^(NSDictionary *response){
+                                            return [[MSGraphThumbnailSet alloc] initWithDictionary:response];
+                                        }
+                                              completion:completionHandler];
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

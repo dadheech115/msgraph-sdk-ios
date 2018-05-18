@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphUserRequest.h"
+#import "MSGraphUserRequestBuilder.h"
+
 
 @implementation MSGraphUserRequestBuilder
 
@@ -78,6 +81,34 @@
     return [[self ownedObjects] directoryObject:directoryObject];
 }
 
+- (MSGraphUserLicenseDetailsCollectionRequestBuilder *)licenseDetails
+{
+    return [[MSGraphUserLicenseDetailsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"licenseDetails"]  
+                                                                           client:self.client];
+}
+
+- (MSGraphLicenseDetailsRequestBuilder *)licenseDetails:(NSString *)licenseDetails
+{
+    return [[self licenseDetails] licenseDetails:licenseDetails];
+}
+
+- (MSGraphUserExtensionsCollectionRequestBuilder *)extensions
+{
+    return [[MSGraphUserExtensionsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"extensions"]  
+                                                                       client:self.client];
+}
+
+- (MSGraphExtensionRequestBuilder *)extensions:(NSString *)extension
+{
+    return [[self extensions] extension:extension];
+}
+
+-(MSGraphOutlookUserRequestBuilder *)outlook
+{
+    return [[MSGraphOutlookUserRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"outlook"] client:self.client];
+
+}
+
 - (MSGraphUserMessagesCollectionRequestBuilder *)messages
 {
     return [[MSGraphUserMessagesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"messages"]  
@@ -150,6 +181,17 @@
     return [[self events] event:event];
 }
 
+- (MSGraphUserPeopleCollectionRequestBuilder *)people
+{
+    return [[MSGraphUserPeopleCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"people"]  
+                                                                   client:self.client];
+}
+
+- (MSGraphPersonRequestBuilder *)people:(NSString *)person
+{
+    return [[self people] person:person];
+}
+
 - (MSGraphUserContactsCollectionRequestBuilder *)contacts
 {
     return [[MSGraphUserContactsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"contacts"]  
@@ -172,10 +214,27 @@
     return [[self contactFolders] contactFolder:contactFolder];
 }
 
+-(MSGraphInferenceClassificationRequestBuilder *)inferenceClassification
+{
+    return [[MSGraphInferenceClassificationRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"inferenceClassification"] client:self.client];
+
+}
+
 -(MSGraphProfilePhotoRequestBuilder *)photo
 {
     return [[MSGraphProfilePhotoRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"photo"] client:self.client];
 
+}
+
+- (MSGraphUserPhotosCollectionRequestBuilder *)photos
+{
+    return [[MSGraphUserPhotosCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"photos"]  
+                                                                   client:self.client];
+}
+
+- (MSGraphProfilePhotoRequestBuilder *)photos:(NSString *)profilePhoto
+{
+    return [[self photos] profilePhoto:profilePhoto];
 }
 
 -(MSGraphDriveRequestBuilder *)drive
@@ -184,15 +243,93 @@
 
 }
 
+- (MSGraphUserDrivesCollectionRequestBuilder *)drives
+{
+    return [[MSGraphUserDrivesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"drives"]  
+                                                                   client:self.client];
+}
+
+- (MSGraphDriveRequestBuilder *)drives:(NSString *)drive
+{
+    return [[self drives] drive:drive];
+}
+
+-(MSGraphPlannerUserRequestBuilder *)planner
+{
+    return [[MSGraphPlannerUserRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"planner"] client:self.client];
+
+}
+
+-(MSGraphOnenoteRequestBuilder *)onenote
+{
+    return [[MSGraphOnenoteRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"onenote"] client:self.client];
+
+}
+
+- (MSGraphUserManagedDevicesCollectionRequestBuilder *)managedDevices
+{
+    return [[MSGraphUserManagedDevicesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"managedDevices"]  
+                                                                           client:self.client];
+}
+
+- (MSGraphManagedDeviceRequestBuilder *)managedDevices:(NSString *)managedDevice
+{
+    return [[self managedDevices] managedDevice:managedDevice];
+}
+
+- (MSGraphUserManagedAppRegistrationsCollectionWithReferencesRequestBuilder *)managedAppRegistrations
+{
+    return [[MSGraphUserManagedAppRegistrationsCollectionWithReferencesRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"managedAppRegistrations"]  
+                                                                                                  client:self.client];
+}
+
+- (MSGraphManagedAppRegistrationRequestBuilder *)managedAppRegistrations:(NSString *)managedAppRegistration
+{
+    return [[self managedAppRegistrations] managedAppRegistration:managedAppRegistration];
+}
+
+- (MSGraphUserDeviceManagementTroubleshootingEventsCollectionRequestBuilder *)deviceManagementTroubleshootingEvents
+{
+    return [[MSGraphUserDeviceManagementTroubleshootingEventsCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"deviceManagementTroubleshootingEvents"]  
+                                                                                                  client:self.client];
+}
+
+- (MSGraphDeviceManagementTroubleshootingEventRequestBuilder *)deviceManagementTroubleshootingEvents:(NSString *)deviceManagementTroubleshootingEvent
+{
+    return [[self deviceManagementTroubleshootingEvents] deviceManagementTroubleshootingEvent:deviceManagementTroubleshootingEvent];
+}
+
+- (MSGraphUserActivitiesCollectionRequestBuilder *)activities
+{
+    return [[MSGraphUserActivitiesCollectionRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"activities"]  
+                                                                       client:self.client];
+}
+
+- (MSGraphUserActivityRequestBuilder *)activities:(NSString *)userActivity
+{
+    return [[self activities] userActivity:userActivity];
+}
+
 - (MSGraphProfilePhotoStreamRequest *) photoValueWithOptions:(NSArray *)options
 {
     NSURL *photoURL = [self.requestURL URLByAppendingPathComponent:@"photo/$value"];
-    return [[MSGraphProfilePhotoStreamRequest alloc] initWithURL:photoURL options:options client:self.client];
+    return [[MSGraphProfilePhotoStreamRequest alloc] initWithURL:photoURL requestOptions:options client:self.client];
 }
 
 - (MSGraphProfilePhotoStreamRequest *) photoValue
 {
     return [self photoValueWithOptions:nil];
+}
+
+- (MSGraphProfilePhotoStreamRequest *) photosValueWithOptions:(NSArray *)options
+{
+    NSURL *photosURL = [self.requestURL URLByAppendingPathComponent:@"photos/$value"];
+    return [[MSGraphProfilePhotoStreamRequest alloc] initWithURL:photosURL requestOptions:options client:self.client];
+}
+
+- (MSGraphProfilePhotoStreamRequest *) photosValue
+{
+    return [self photosValueWithOptions:nil];
 }
 
 - (MSGraphUserAssignLicenseRequestBuilder *)assignLicenseWithAddLicenses:(NSArray *)addLicenses removeLicenses:(NSArray *)removeLicenses 
@@ -228,6 +365,43 @@
 
 }
 
+- (MSGraphUserFindMeetingTimesRequestBuilder *)findMeetingTimesWithAttendees:(NSArray *)attendees locationConstraint:(MSGraphLocationConstraint *)locationConstraint timeConstraint:(MSGraphTimeConstraint *)timeConstraint meetingDuration:(MSDuration *)meetingDuration maxCandidates:(int32_t)maxCandidates isOrganizerOptional:(BOOL)isOrganizerOptional returnSuggestionReasons:(BOOL)returnSuggestionReasons minimumAttendeePercentage:(CGFloat)minimumAttendeePercentage 
+{
+    NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"microsoft.graph.findMeetingTimes"];
+    return [[MSGraphUserFindMeetingTimesRequestBuilder alloc] initWithAttendees:attendees
+                                                             locationConstraint:locationConstraint
+                                                                 timeConstraint:timeConstraint
+                                                                meetingDuration:meetingDuration
+                                                                  maxCandidates:maxCandidates
+                                                            isOrganizerOptional:isOrganizerOptional
+                                                        returnSuggestionReasons:returnSuggestionReasons
+                                                      minimumAttendeePercentage:minimumAttendeePercentage
+                                                                            URL:actionURL
+                                                                         client:self.client];
+
+
+}
+
+- (MSGraphUserRemoveAllDevicesFromManagementRequestBuilder *)removeAllDevicesFromManagement
+{
+    return [[MSGraphUserRemoveAllDevicesFromManagementRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.removeAllDevicesFromManagement"] client:self.client];
+}
+
+- (MSGraphUserWipeManagedAppRegistrationsByDeviceTagRequestBuilder *)wipeManagedAppRegistrationsByDeviceTagWithDeviceTag:(NSString *)deviceTag 
+{
+    NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"microsoft.graph.wipeManagedAppRegistrationsByDeviceTag"];
+    return [[MSGraphUserWipeManagedAppRegistrationsByDeviceTagRequestBuilder alloc] initWithDeviceTag:deviceTag
+                                                                                                  URL:actionURL
+                                                                                               client:self.client];
+
+
+}
+
+- (MSGraphUserDeltaRequestBuilder *)delta
+{
+    return [[MSGraphUserDeltaRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.delta"] client:self.client];
+}
+
 - (MSGraphUserReminderViewRequestBuilder *)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime 
 {
     NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"microsoft.graph.reminderView"];
@@ -239,15 +413,25 @@
 
 }
 
+- (MSGraphUserGetManagedAppDiagnosticStatusesRequestBuilder *)getManagedAppDiagnosticStatuses
+{
+    return [[MSGraphUserGetManagedAppDiagnosticStatusesRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.getManagedAppDiagnosticStatuses"] client:self.client];
+}
+
+- (MSGraphUserGetManagedAppPoliciesRequestBuilder *)getManagedAppPolicies
+{
+    return [[MSGraphUserGetManagedAppPoliciesRequestBuilder alloc] initWithURL:[self.requestURL URLByAppendingPathComponent:@"microsoft.graph.getManagedAppPolicies"] client:self.client];
+}
+
 
 - (MSGraphUserRequest *)request
 {
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphUserRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphUserRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphUserRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

@@ -11,9 +11,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphDriveItemsCollectionRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphDriveItemsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphDriveItemsCollectionRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphDriveItemsCollectionRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 - (MSGraphDriveItemRequestBuilder *)driveItem:(NSString *)driveItem
 {

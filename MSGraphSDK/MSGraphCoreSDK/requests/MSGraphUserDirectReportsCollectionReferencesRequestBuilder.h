@@ -16,7 +16,7 @@
 
 - (MSGraphUserDirectReportsCollectionReferencesRequest *)request;
 
-- (MSGraphUserDirectReportsCollectionReferencesRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserDirectReportsCollectionReferencesRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

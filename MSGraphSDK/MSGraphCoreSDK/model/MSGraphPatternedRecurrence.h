@@ -9,7 +9,7 @@
 
 @interface MSGraphPatternedRecurrence : MSObject
 
-	@property (nonatomic, setter=setPattern:, getter=pattern) MSGraphRecurrencePattern* pattern;
-		@property (nonatomic, setter=setRange:, getter=range) MSGraphRecurrenceRange* range;
-	
+@property (nullable, nonatomic, setter=setPattern:, getter=pattern) MSGraphRecurrencePattern* pattern;
+@property (nullable, nonatomic, setter=setRange:, getter=range) MSGraphRecurrenceRange* range;
+
 @end

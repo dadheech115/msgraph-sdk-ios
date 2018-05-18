@@ -13,7 +13,7 @@
 
 - (MSGraphDriveItemPermissionsCollectionRequest *)request;
 
-- (MSGraphDriveItemPermissionsCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphDriveItemPermissionsCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphPermissionRequestBuilder *)permission:(NSString *)permission;
 

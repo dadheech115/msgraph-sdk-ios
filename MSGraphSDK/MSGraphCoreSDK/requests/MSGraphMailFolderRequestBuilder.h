@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphMailFolderRequest, MSGraphMessageRequestBuilder, MSGraphMailFolderMessagesCollectionRequestBuilder, MSGraphMailFolderRequestBuilder, MSGraphMailFolderChildFoldersCollectionRequestBuilder, MSGraphMailFolderCopyRequestBuilder, MSGraphMailFolderMoveRequestBuilder;
+@class MSGraphMailFolderRequest, MSGraphMessageRequestBuilder, MSGraphMailFolderMessagesCollectionRequestBuilder, MSGraphMessageRuleRequestBuilder, MSGraphMailFolderMessageRulesCollectionRequestBuilder, MSGraphMailFolderRequestBuilder, MSGraphMailFolderChildFoldersCollectionRequestBuilder, MSGraphSingleValueLegacyExtendedPropertyRequestBuilder, MSGraphMailFolderSingleValueExtendedPropertiesCollectionRequestBuilder, MSGraphMultiValueLegacyExtendedPropertyRequestBuilder, MSGraphMailFolderMultiValueExtendedPropertiesCollectionRequestBuilder, MSGraphMailFolderCopyRequestBuilder, MSGraphMailFolderMoveRequestBuilder, MSGraphMailFolderDeltaRequestBuilder;
 
 
 #import "MSGraphModels.h"
@@ -15,22 +15,32 @@
 
 - (MSGraphMessageRequestBuilder *)messages:(NSString *)message;
 
+- (MSGraphMailFolderMessageRulesCollectionRequestBuilder *)messageRules;
+
+- (MSGraphMessageRuleRequestBuilder *)messageRules:(NSString *)messageRule;
+
 - (MSGraphMailFolderChildFoldersCollectionRequestBuilder *)childFolders;
 
 - (MSGraphMailFolderRequestBuilder *)childFolders:(NSString *)mailFolder;
 
+- (MSGraphMailFolderSingleValueExtendedPropertiesCollectionRequestBuilder *)singleValueExtendedProperties;
+
+- (MSGraphSingleValueLegacyExtendedPropertyRequestBuilder *)singleValueExtendedProperties:(NSString *)singleValueLegacyExtendedProperty;
+
+- (MSGraphMailFolderMultiValueExtendedPropertiesCollectionRequestBuilder *)multiValueExtendedProperties;
+
+- (MSGraphMultiValueLegacyExtendedPropertyRequestBuilder *)multiValueExtendedProperties:(NSString *)multiValueLegacyExtendedProperty;
+
 - (MSGraphMailFolderCopyRequestBuilder *)copyWithDestinationId:(NSString *)destinationId ;
-
-
 
 - (MSGraphMailFolderMoveRequestBuilder *)moveWithDestinationId:(NSString *)destinationId ;
 
-
+- (MSGraphMailFolderDeltaRequestBuilder *)delta;
 
 
 - (MSGraphMailFolderRequest *) request;
 
-- (MSGraphMailFolderRequest *) requestWithOptions:(NSArray *)options;
+- (MSGraphMailFolderRequest *) requestWithOptions:(NSArray *)requestOptions;
 
 
 @end

@@ -6,6 +6,7 @@
 
 #import "MSGraphODataEntities.h"
 #import "MSURLSessionDataTask.h"
+#import "MSGraphDirectoryObjectWithReferenceRequest.h"
 
 @interface MSRequest()
 
@@ -35,13 +36,13 @@
 
 - (MSURLSessionDataTask *)getWithCompletion:(void (^)(MSGraphDirectoryObject *response, NSError *error))completionHandler
 {
-    MSURLSessionDataTask *task = [self taskWithRequest:[self get]
+    MSURLSessionDataTask *sessionDataTask = [self taskWithRequest:[self get]
                                 odObjectWithDictionary:^(NSDictionary *response){
                                             return [[MSGraphDirectoryObject alloc] initWithDictionary:response];
                                         }
                                              completion:completionHandler];
-    [task execute];
-    return task;
+    [sessionDataTask execute];
+    return sessionDataTask;
 }
 
 

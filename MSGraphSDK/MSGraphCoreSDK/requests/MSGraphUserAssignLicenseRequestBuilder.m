@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserAssignLicenseRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphUserAssignLicenseRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphUserAssignLicenseRequest alloc] initWithAddLicenses:self.addLicenses
                                                          removeLicenses:self.removeLicenses
                                                                     URL:self.requestURL
-                                                                options:options
+                                                         requestOptions:requestOptions
                                                                  client:self.client];
 
 }

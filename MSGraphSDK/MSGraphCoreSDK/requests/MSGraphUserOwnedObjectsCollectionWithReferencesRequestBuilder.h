@@ -14,7 +14,7 @@
 
 - (MSGraphUserOwnedObjectsCollectionWithReferencesRequest *)request;
 
-- (MSGraphUserOwnedObjectsCollectionWithReferencesRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphUserOwnedObjectsCollectionWithReferencesRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphDirectoryObjectRequestBuilder *)directoryObject:(NSString *)directoryObject;
 

@@ -35,11 +35,13 @@
     }
     return _meetingMessageType;
 }
+
 - (void) setMeetingMessageType: (MSGraphMeetingMessageType*) val
 {
     _meetingMessageType = val;
     self.dictionary[@"meetingMessageType"] = val;
 }
+
 - (MSGraphEvent*) event
 {
     if(!_event){
@@ -47,10 +49,12 @@
     }
     return _event;
 }
+
 - (void) setEvent: (MSGraphEvent*) val
 {
     _event = val;
     self.dictionary[@"event"] = val;
 }
+
 
 @end

@@ -12,7 +12,7 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphMessageCreateReplyAllRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphMessageCreateReplyAllRequest *)requestWithOptions:(NSArray *)requestOptions
 {
     return [[MSGraphMessageCreateReplyAllRequest alloc] initWithURL:self.requestURL client:self.client];
 }

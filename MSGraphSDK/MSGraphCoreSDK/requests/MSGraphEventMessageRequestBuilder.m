@@ -3,6 +3,9 @@
 
 
 #import "MSGraphODataEntities.h"
+#import "MSGraphEventMessageRequest.h"
+#import "MSGraphEventMessageRequestBuilder.h"
+
 
 @implementation MSGraphEventMessageRequestBuilder
 
@@ -18,9 +21,9 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphEventMessageRequest *) requestWithOptions:(NSArray *)options
+- (MSGraphEventMessageRequest *) requestWithOptions:(NSArray *)requestOptions
 {
-    return [[MSGraphEventMessageRequest alloc] initWithURL:self.requestURL options:options client:self.client];
+    return [[MSGraphEventMessageRequest alloc] initWithURL:self.requestURL requestOptions:requestOptions client:self.client];
 }
 
 

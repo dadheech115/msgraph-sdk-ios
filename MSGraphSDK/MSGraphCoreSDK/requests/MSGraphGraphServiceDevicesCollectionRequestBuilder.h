@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 
 
-@class MSGraphDevicesCollectionRequest, MSGraphDeviceRequestBuilder;
+@class MSGraphGraphServiceDevicesCollectionRequest, MSGraphDeviceRequestBuilder;
 
 #import "MSGraphModels.h"
 #import "MSCollectionRequestBuilder.h"
@@ -9,11 +9,11 @@
 
 
 
-@interface MSGraphDevicesCollectionRequestBuilder : MSCollectionRequestBuilder
+@interface MSGraphGraphServiceDevicesCollectionRequestBuilder : MSCollectionRequestBuilder
 
-- (MSGraphDevicesCollectionRequest *)request;
+- (MSGraphGraphServiceDevicesCollectionRequest *)request;
 
-- (MSGraphDevicesCollectionRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphGraphServiceDevicesCollectionRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 - (MSGraphDeviceRequestBuilder *)device:(NSString *)device;
 

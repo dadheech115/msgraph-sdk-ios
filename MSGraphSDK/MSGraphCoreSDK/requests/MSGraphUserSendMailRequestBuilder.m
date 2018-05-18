@@ -32,13 +32,13 @@
     return [self requestWithOptions:nil];
 }
 
-- (MSGraphUserSendMailRequest *)requestWithOptions:(NSArray *)options
+- (MSGraphUserSendMailRequest *)requestWithOptions:(NSArray *)requestOptions
 {
 
     return [[MSGraphUserSendMailRequest alloc] initWithMessage:self.message
                                                saveToSentItems:self.saveToSentItems
                                                            URL:self.requestURL
-                                                       options:options
+                                                requestOptions:requestOptions
                                                         client:self.client];
 
 }

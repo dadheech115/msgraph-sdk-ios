@@ -5,6 +5,7 @@
 @class MSURLSessionDataTask;
 @class MSGraphDriveItemRequestBuilder;
 @class MSGraphItemsCollectionRequestBuilder;
+@class MSGraphListRequestBuilder;
 @class MSGraphSpecialCollectionRequestBuilder;
 #import "MSGraphModels.h"
 #import "MSRequest.h"

@@ -10,10 +10,11 @@
 
 @interface MSGraphEventDeclineRequestBuilder : MSRequestBuilder
 
+
 - (instancetype)initWithComment:(NSString *)comment sendResponse:(BOOL)sendResponse URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphEventDeclineRequest *)request;
 
-- (MSGraphEventDeclineRequest *)requestWithOptions:(NSArray *)options;
+- (MSGraphEventDeclineRequest *)requestWithOptions:(NSArray *)requestOptions;
 
 @end
